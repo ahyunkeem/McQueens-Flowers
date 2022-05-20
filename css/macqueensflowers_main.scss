@@ -5,10 +5,12 @@ $hi60: #{'min(1.5rem,60px)'};
 $hi80: #{'min(2rem,80px)'};
 $hi120: #{'min(3rem,120px)'};
 // 폰트
-$fz22: #{'min(2.2em,22px)'};
-$fz18: #{'min(1.8em,18px)'};
-$fz16: #{'min(1.6em,16px)'};
+$fz12: #{'min(1.2em,12px)'};
 $fz14: #{'min(1.4em,14px)'};
+$fz16: #{'min(1.6em,16px)'};
+$fz18: #{'min(1.8em,18px)'};
+$fz20: #{'min(2em,20px)'};
+$fz22: #{'min(2.2em,22px)'};
 // 컬러
 $bgc: #093037;
 
@@ -156,6 +158,7 @@ html{
             justify-content: space-between;
             position: fixed;
             z-index: 6;
+            top: 0;
             margin-left: -100%;
         }
         .navBox{
@@ -279,8 +282,14 @@ html{
     // 컨텐츠
     .cntWrap{
         margin-top: $hi120;
+        @include tab{
+            margin-top: $hi80;
+        }
         .content{
             @include grid('pc');
+            @include tab{
+                @include grid('');
+            }
             header{
                 font-family: 'prata';
                 h5{
@@ -290,6 +299,9 @@ html{
                 h2{
                     font-size: $fz22;
                     line-height: $hi40;
+                    @include tab{
+                        font-size: $fz20;
+                    }
                 }
                 border-bottom: 1px solid #c3c7c7;
             }
@@ -302,6 +314,9 @@ html{
                             line-height: $hi20;
                             font-family: 'prata';
                             letter-spacing: 1px;
+                            @include tab{
+                                font-size: $fz12;
+                            }
                         }
                     }
                 }
@@ -312,6 +327,9 @@ html{
                 justify-content: space-between;
                 .cntLeft{
                     width: calc(50% - 20px);
+                    @include tab{
+                        display: none;
+                    }
                     header{
                         h5{}
                         h2{}
@@ -362,6 +380,9 @@ html{
                 }
                 .cntRight{
                     width: calc(50% - 20px);
+                    @include tab{
+                        width: 100%;
+                    }
                     header{
                         &::after{
                             display: block;
@@ -376,6 +397,7 @@ html{
                             float: right;
                             line-height: $hi40;
                             cursor: not-allowed;
+                            font-size: $fz14;
                         }
                     }
                     section{
@@ -384,6 +406,12 @@ html{
                             margin-top: $hi40;
                             display: flex;
                             justify-content: space-between;
+                            @include tab{
+                                margin-top: $hi20;
+                                &:nth-child(1){
+                                    margin-top: $hi40;
+                                }
+                            }
                             .image{
                                 width: calc(100% / 6 * 2.5);
                                 height: #{'min(5rem,200px)'};
@@ -393,11 +421,17 @@ html{
                                         background-image: url('../images/main/main_cnt1_i#{$i}.jpg');
                                     }
                                 }
+                                @include tab{
+                                    width: calc(100% / 8 * 2);
+                                }
                             }
                             .texts{
                                 width: calc(100% / 6 * 3.3);
                                 height: #{'min(5rem,200px)'};
                                 transition: border-left 0.3s;
+                                @include tab{
+                                    width: calc(100% / 8 * 5.8);
+                                }
                                 &:hover{
                                     border-left: 10px solid $bgc;
                                     *{
@@ -416,6 +450,9 @@ html{
                                     height: $hi80;
                                     overflow: hidden;
                                     letter-spacing: 1px;
+                                    @include tab{
+                                        font-size: $fz12;
+                                    }
                                 }
                                 .btn{
                                     font-size: $fz14;
@@ -520,26 +557,47 @@ html{
     // 배너
     .bnrWrap{
         margin-top: $hi120;
+        @include tab{
+            margin-top: $hi80;
+        }
         .banner{
             @include grid('pc');
+            @include tab{
+                @include grid('');
+            }
             &.bnr01{
                 display: flex;
                 justify-content: space-between;
-                height: #{'min(14rem,560px)'};
+                height: #{'min(16.5rem,660px)'};
                 position: relative;
+                @include tab{
+                    display: block;
+                    // height: #{'min(17rem,680px)'};
+                    // 하이트값 정확히 계산해서 레이아웃 겹치지 않게 조절하기
+                }
                 .texts{
                     width: calc(50% - 20px);
+                    @include tab{
+                        width: 100%;
+                    }
                     h2{
                         font-size: #{'min(4.8em,48px)'};
                         line-height: $hi80;
                         font-family: 'freder';
                         text-align: center;
+                        @include tab{
+                            font-size: #{'min(4em,40px)'};
+                            line-height: $hi60;
+                        }
                     }
                     h3{
                         font-size: $fz22;
                         line-height: $hi40;
                         font-family: 'prata';
                         text-align: center;
+                        @include tab{
+                            font-size: $fz20;
+                        }
                     }
                     p{
                         padding-top: $hi60;
@@ -552,6 +610,9 @@ html{
                         letter-spacing: 1px;
                         margin: 0 auto;
                         text-align: center;
+                        @include tab{
+                            display: none;
+                        }
                     }
                     .btns{
                         width: 100%;
@@ -559,6 +620,13 @@ html{
                         justify-content: space-between;
                         font-size: #{'min(10em,100px)'};
                         margin-top: $hi40;
+                        @include tab{
+                            width: calc(100% / 8 * 6);
+                            font-size: #{'min(5em,50px)'};
+                            line-height: $hi60;
+                            margin-top: 0;
+                            margin: 0 auto;
+                        }
                         .left{
                             cursor: pointer;
                         }
@@ -569,6 +637,10 @@ html{
                 }
                 .images{
                     width: calc(50% - 20px);
+                    @include tab{
+                        width: calc(100% / 8 * 4.5);
+                        margin: 0 auto;
+                    }
                     .imgView{
                         width: 100%;
                         overflow: hidden;
@@ -584,6 +656,9 @@ html{
                                     &.i#{$i}{
                                         background-image: url('../images/main/main_bnr1_i#{$i}.jpg');
                                     }
+                                }
+                                @include tab{
+                                    height: #{'min(12rem,480px)'};
                                 }
                             }
                         }
