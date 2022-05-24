@@ -80,8 +80,8 @@ html{
 .hdrArea{
     width: 10%;
     height: 100vh;
-    background-color: $bgc;
     position: fixed;
+    background-color: $bgc;
     @include tab{
         display: none;
     }
@@ -147,7 +147,7 @@ html{
             .logo{
                 @include tab{
                     height: $hi80;
-                    width: calc(100% / 8 * 2);
+                    width: calc(100% / 8 * 3);
                     margin: 0 auto;
                     @include img();
                     background-image: url('../images/mcqueen-logo_bk_2.png');
@@ -172,13 +172,13 @@ html{
     .navBoxWrap{
         display: none;
         @include tab{
-            display: block;
             display: flex;
             justify-content: space-between;
             position: fixed;
             z-index: 6;
             top: 0;
             margin-left: -100vw;
+            transition: all 0.5s;
         }
         .navBox{
             @include tab{
@@ -191,7 +191,7 @@ html{
                     @include img();
                     background-image: url('../images/mcqueen-logo_bk_2.png');
                     height: $hi120;
-                    width: calc(100% / 7 * 2);
+                    width: calc(100% / 7 * 4);
                     margin: 0 auto;
                     margin-top: $hi120;
                 }

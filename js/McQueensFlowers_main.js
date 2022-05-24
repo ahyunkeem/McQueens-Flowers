@@ -13,6 +13,7 @@ $(function(){
     var cnt02Gr = $('.cnt02>section>.artView>.artGroup');
     var cnt02tab = $('.cnt02>section>.tab>li');
     var scrBtn = $('.scrBtn');
+    var clo = $('.navBoxWrap>.close>.btn');
 
     if(wd > 1024){
         // pc버전
@@ -26,7 +27,7 @@ $(function(){
         // 모바일버전
         hi = 60;
         hidw = 20;
-            // 배너01 슬라이드_모바일
+        // 배너01 슬라이드_모바일
         bnrVw.swipeleft(function(){
             j++;
             if( j >= 2){
@@ -51,7 +52,6 @@ $(function(){
         });
     }
 
-    console.log(wd);
     // 스크롤 버튼
     var btm = $('html').offset().top+$('html').outerHeight();
     scrBtn.mouseenter(function(){
@@ -70,6 +70,12 @@ $(function(){
             scrollTop : btm
         },500);
     });
+
+    // 네브박스
+    clo.click(function(){
+        $('.navBoxWrap').css({marginLeft : -100+'vw'});
+    });
+
     
     // 컨텐츠01 라이트박스
     vidBtn.click(function(){
