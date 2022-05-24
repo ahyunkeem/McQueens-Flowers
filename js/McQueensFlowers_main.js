@@ -1,8 +1,12 @@
 $(function(){
+    var wd = $(window).width();
+    var j = 0;
     var i = 0;
     var hi = 0;
+    var hidw = 0;
     var vidBtn = $('.cnt01>.cntLeft>section>article>.image>.btn');
     var vidCls = $('.lightBox>.btn');
+    var bnrVw = $('.bnr01>.images>.imgView');
     var bnrGr = $('.bnr01>.images>.imgView>.imgGroup');
     var bnrBtn = $('.bnr01>.texts>.btns>div');
     var paging = $('.bnr01>.paging>li');
@@ -10,9 +14,62 @@ $(function(){
     var cnt02tab = $('.cnt02>section>.tab>li');
     var scrBtn = $('.scrBtn');
 
-    // scrBtn.click(function(){
-    //     alert('선택완료');
-    // });
+    if(wd > 1024){
+        // pc버전
+        hi = 120;
+        hidw = 40;
+    }else if(wd >= 420 && wd <= 1024 ){
+        // tab버전
+        hi = 120;
+        hidw = 40;
+    }else{
+        // 모바일버전
+        hi = 60;
+        hidw = 20;
+            // 배너01 슬라이드_모바일
+        bnrVw.swipeleft(function(){
+            j++;
+            if( j >= 2){
+                j = 2;
+            }
+            bnrGr.css({
+                marginLeft : j*-100+'%'
+            });
+            paging.removeClass('show');
+            paging.eq(j).addClass('show');
+        });
+        bnrVw.swiperight(function(){
+            j--;
+            if( j <= 0){
+                j = 0;
+            }
+            bnrGr.css({
+                marginLeft : j*-100+'%'
+            });
+            paging.removeClass('show');
+            paging.eq(j).addClass('show');
+        });
+    }
+
+    console.log(wd);
+    // 스크롤 버튼
+    var btm = $('html').offset().top+$('html').outerHeight();
+    scrBtn.mouseenter(function(){
+        scrBtn.css('height',hi+'px');
+    });
+    scrBtn.mouseleave(function(){
+        scrBtn.css('height',hidw+'px');
+    });
+    scrBtn.find('.top').click(function(){
+        $('html,body').stop().animate({
+            scrollTop : 0
+        },500)
+    });
+    scrBtn.find('.btm').click(function(){
+        $('html,body').stop().animate({
+            scrollTop : btm
+        },500);
+    });
     
     // 컨텐츠01 라이트박스
     vidBtn.click(function(){
@@ -55,6 +112,7 @@ $(function(){
     });
     paging.click(function(){
         var ind = $(this).index();
+        i = ind; j = ind;
         bnrBtn.css('opacity','1');
         if(ind >= 2){
             bnrBtn.eq(1).css('opacity','0.4');
@@ -79,22 +137,5 @@ $(function(){
         cnt02tab.css('border-bottom','none');
         $(this).css('border-bottom','1px solid #000');
     });
-
-
-    if (width<420){
-        
-    }else if(width<=1024){
-        
-    }else if(width>1024){
-        hi = 120;
-    }
-
-
-    // 스크롤 버튼
-    scrBtn.click(function(){
-        scrBtn.css('height',hi+'px');
-    });
-
-
 
 });
