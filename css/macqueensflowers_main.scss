@@ -118,6 +118,7 @@ html{
         margin-left: 0;
     }
 
+
     // tab 헤더
     .hdrWrap{
         display: none;
@@ -134,8 +135,8 @@ html{
             justify-content: space-between;
             }
             @include mob{
-                line-height: $hi80;
-                height: $hi80;
+                line-height: #{'max(2rem,40px)'};
+                height: #{'max(2rem,40px)'};
             }
             .logo{
                 @include tab{
@@ -146,8 +147,8 @@ html{
                     background-image: url('../images/mcqueen-logo_bk_2.png');
                 }
                 @include mob{
-                    height: $hi80;
-                    width: 25%;
+                    height: #{'max(2rem,40px)'};
+                    width: 40%;
                 }
             }
             nav{
@@ -155,7 +156,7 @@ html{
                     font-size: #{'min(3.5em,35px)'};
                 }
                 @include mob{
-                    font-size: #{'min(3.5em,35px)'};
+                    font-size: #{'max(3em,20px)'};
                 }
                 i{}
             }
@@ -247,7 +248,7 @@ html{
 
     // 헤더탑
     .hdrTopWrap{
-        background-color: #fff;
+        background-color: #000;
         opacity: 0.7;
         position: relative;
         z-index: 1;
@@ -260,7 +261,7 @@ html{
             h4{
                 font-size: #{'min(1.2em,12px)'};
                 line-height: $hi40;
-                color: #000;
+                color: #fff;
                 font-family: 'prata';
                 letter-spacing: 1.5px;
             }
@@ -282,6 +283,9 @@ html{
             @include tab{
                 height: #{'min(15rem,600px)'};
             }
+            @include mob{
+                height: #{'max(7.5rem,200px)'};
+            }
             video{
                 width: 100%;
                 position: absolute;
@@ -298,7 +302,7 @@ html{
             margin-top: $hi80;
         }
         @include mob{
-            margin-top: $hi80;
+            margin-top: #{'max(2rem,40px)'};
         }
         .content{
             @include grid('pc');
@@ -328,7 +332,7 @@ html{
                     }
                     @include mob{
                         font-size: $fz16;
-                        line-height: #{'min(1rem,40px)'};
+                        line-height: #{'max(0.5rem,20px)'};
                     }
                 }
                 border-bottom: 1px solid #c3c7c7;
@@ -339,7 +343,7 @@ html{
                     margin-top: $hi40;
                 }
                 @include mob{
-                    margin-top: $hi20;
+                    margin-top: #{'max(0.5rem,20px)'};
                 }
                 article{
                     .texts{
@@ -456,7 +460,7 @@ html{
                                 }
                             }
                             @include mob{
-                                margin-top: $hi20;
+                                margin-top: #{'max(0.5rem,20px)'};
                             }
                             .image{
                                 width: calc(100% / 6 * 2.5);
@@ -472,7 +476,7 @@ html{
                                 }
                                 @include mob{
                                     width: calc(50% - 5px);
-                                    height: #{'min(6rem,240px)'};
+                                    height: #{'max(5rem,160px)'};
                                 }
                             }
                             .texts{
@@ -484,7 +488,7 @@ html{
                                 }
                                 @include mob{
                                     width: calc(50% - 5px);
-                                    height: #{'min(6rem,240px)'};
+                                    height: #{'max(5rem,160px)'};
                                 }
                                 &:hover{
                                     border-left: 10px solid $bgc;
@@ -498,7 +502,7 @@ html{
                                     font-family: 'prata';
                                     @include mob{
                                         font-size: $fz14;
-                                        line-height: $hi40;
+                                        line-height: #{'max(0.5rem,20px)'};
                                     }
                                 }
                                 p{
@@ -510,13 +514,14 @@ html{
                                     letter-spacing: 1px;
                                     @include tab{
                                         font-size: $fz12;
-                                        line-height: $hi20;
+                                        line-height: #{'min(0.5rem,20px)'};
                                         margin-top: $hi20;
-                                        height: $hi80;
                                     }
                                     @include mob{
                                         font-size: $fz11;
                                         line-height: #{'max(0.5rem,20px)'};
+                                        height: #{'max(2rem,80px)'};
+                                        margin-top: #{'max(1rem,20px)'};
                                     }
                                 }
                                 .btn{
@@ -529,7 +534,8 @@ html{
                                     @include mob{
                                         font-size: $fz14;
                                         line-height: #{'max(0.5rem,20px)'};
-                                        margin-top: $hi40;
+                                        height: #{'max(0.5rem,20px)'};
+                                        margin-top: #{'max(1rem,20px)'};
                                     }
                                 }
                             }
@@ -560,17 +566,22 @@ html{
                             width: 400%;
                             display: flex;
                             justify-content: space-between;
+                            transition: margin-left 0.7s;
                             .art{
                                 width: 100%;
                                 display: flex;
                                 justify-content: space-between;
-                                @include mob{
-                                    justify-content: center;
-                                }
                                 article{
                                     width: calc(100% / 4 - 10px);
                                     height: #{'min(8rem,320px)'};
                                     position: relative;
+                                    @include mob{
+                                        width: calc(50% - 10px);
+                                        height: 100%;
+                                        &:nth-child(2)~article{
+                                            display: none;
+                                        }
+                                    }
                                     .image{
                                         height: #{'min(6rem,240px)'};
                                         margin-top: $hi80;
@@ -588,6 +599,14 @@ html{
                                         &:hover+.texts{
                                             opacity: 1;
                                         }
+                                        @include mob{
+                                            height: #{'max(4rem,140px)'};
+                                            background-size: contain;
+                                            margin-top: #{'max(2rem,20px)'};
+                                            &:hover{
+                                                height: #{'max(4rem,140px)'};
+                                            }
+                                        }
                                     }
                                     .texts{
                                         color: #565656;                                        opacity: 0;
@@ -596,6 +615,10 @@ html{
                                         top: 0; left: 0; right: 0;
                                         margin: auto;
                                         transition: opacity 0.5s;
+                                        @include mob{
+                                            top: 5%;
+                                            line-height: #{'max(2rem,20px)'};
+                                        }
                                         h5{
                                             text-align: center;
                                             line-height: $hi60;
@@ -630,7 +653,7 @@ html{
                             font-family: 'basker';
                             font-size: $fz18;
                             cursor: pointer;
-                            &:hover{
+                            &:nth-child(1){
                                 border-bottom: 1px solid #000;
                             }
                         }
@@ -647,27 +670,24 @@ html{
             margin-top: $hi80;
         }
         @include mob{
-            margin-top: $hi80;
+            margin-top: #{'max(2rem,40px)'};
         }
         .banner{
             @include grid('pc');
             @include tab{
                 @include grid('');
             }
-            @include mob{
-                @include grid('')
-            }
             &.bnr01{
                 display: flex;
                 justify-content: space-between;
-                height: #{'min(16.5rem,660px)'};
+                height: #{'min(14rem,560px)'};
                 position: relative;
                 @include tab{
                     display: block;
                     height: #{'min(18.5rem,740px)'};
                 }
                 @include mob{
-                    height: #{'min(17.5rem,700px)'};
+                    height: 100%;
                 }
                 .texts{
                     width: calc(50% - 20px);
@@ -684,8 +704,8 @@ html{
                             line-height: $hi60;
                         }
                         @include mob{
-                            font-size: #{'min(3em,30px)'};
-                            line-height: #{'min(1rem,40px)'};
+                            font-size: #{'max(3em,20px)'};
+                            line-height: #{'max(1rem,20px)'};
                         }
                     }
                     h3{
@@ -731,8 +751,9 @@ html{
                             margin: 0 auto;
                         }
                         @include mob{
-                            width: calc(100% / 2);
-                            font-size: #{'min(4em,40px)'};
+                            width: 90%;
+                            font-size: #{'max(4em,30px)'};
+                            line-height: #{'max(1rem,30px)'};
                         }
                         .left{
                             cursor: pointer;
@@ -748,6 +769,9 @@ html{
                         width: calc(100% / 8 * 4.5);
                         margin: 0 auto;
                     }
+                    @include mob{
+                        width: calc(100% / 4 * 3.5);
+                    }
                     .imgView{
                         width: 100%;
                         overflow: hidden;
@@ -755,6 +779,7 @@ html{
                             width: 300%;
                             display: flex;
                             justify-content: space-between;
+                            transition: margin-left 0.7s;
                             .image{
                                 width: calc(100% / 3);
                                 height: #{'min(13rem,520px)'};
@@ -766,6 +791,9 @@ html{
                                 }
                                 @include tab{
                                     height: #{'min(12rem,480px)'};
+                                }
+                                @include mob{
+                                    height: #{'max(6rem,240px)'};
                                 }
                             }
                         }
@@ -784,6 +812,7 @@ html{
                         width: calc(100% / 4);
                         padding: 0;
                         line-height: $hi20;
+                        bottom: 3%;
                     }
                     li{
                         width: 10px;
@@ -814,6 +843,9 @@ html{
                     max-width: 1024px;
                     margin: 0 auto;
                 }
+                @include mob{
+                    max-width: 420px;
+                }
                 .sns{
                     width: calc(100% / 4);
                     height: #{'min(7rem,280px)'};
@@ -821,6 +853,13 @@ html{
                     cursor: pointer;
                     @include tab{
                         height: #{'min(8rem,320px)'}; 
+                    }
+                    @include mob{
+                        width: 50%;
+                        height: #{'max(5rem,140px)'};
+                        &:nth-child(2)~.sns{
+                            display: none;
+                        }
                     }
                     .image{
                         position: absolute;
@@ -834,6 +873,9 @@ html{
                         }
                         @include tab{
                             height: #{'min(8rem,320px)'}; 
+                        }
+                        @include mob{
+                            height: #{'max(5rem,140px)'};
                         }
                     }
                     .icon{
@@ -850,6 +892,9 @@ html{
                         @include tab{
                             height: #{'min(8rem,320px)'}; 
                         }
+                        @include mob{
+                            height: #{'max(5rem,140px)'};
+                        }
                         i{
                             color: #fff;
                             font-size: #{'min(4em,40px)'};
@@ -858,6 +903,9 @@ html{
                             position: absolute;
                             top: 0; bottom: 0; left: 0; right: 0;
                             margin: auto;
+                            @include mob{
+                                font-size: #{'max(4em,20px)'};
+                            }
                         }
                     }
                 }
@@ -872,12 +920,17 @@ html{
         @include tab{
             margin-top: $hi80;
         }
+        @include mob{
+            margin-top: #{'max(2rem,40px)'};
+        }
         footer{
             @include grid('pc');
             padding-top: $hi40;
             @include tab{
                 @include grid('');
-                padding-top: $hi20;
+            }
+            @include mob{
+                padding-top: #{'max(1rem,20px)'};
             }
             .info{
                 display: flex;
@@ -911,18 +964,26 @@ html{
                     @include tab{
                         margin: 0 auto;
                     }
+                    @include mob{
+                        width: calc(100% / 4 * 3);
+                    }
                     h3{
                         font-family: 'prata';
                         font-size: $fz16;
                         text-align: right;
+                        line-height: $hi40;
                         @include tab{
                             text-align: center;
+                        }
+                        @include mob{
+                            line-height: #{'max(1rem,20px)'};
                         }
                     }
                     .sns{
                         font-size: #{'min(2.8em,28px)'};
                         display: flex;
                         justify-content: right;
+                        text-align: center;
                         @include tab{
                             justify-content: center;
                         }
@@ -930,6 +991,10 @@ html{
                             line-height: $hi40;
                             margin-left: 10px;
                             cursor: pointer;
+                            @include mob{
+                                line-height: #{'max(1rem,20px)'};
+                                font-size: #{'max(2.8em,18px)'};
+                            }
                         }
                     }
                     p{
@@ -939,6 +1004,9 @@ html{
                         text-align: right;
                         @include tab{
                             text-align: center;
+                        }
+                        @include mob{
+                            line-height: #{'max(0.5rem,20px)'};
                         }
                     }
                 }
@@ -953,6 +1021,9 @@ html{
                 @include tab{
                     font-size: #{'min(4em,40px)'};
                     margin-top: $hi20;
+                }
+                @include mob{
+                    display: none;
                 }
             }
         }
@@ -971,6 +1042,15 @@ html{
         border-top-right-radius: 10px;
         height: $hi40;
         overflow: hidden;
+        @include tab{
+            width: calc(100% / 8);
+        }
+        @include mob{
+            width: calc(100% / 4);
+            height: #{'max(1rem,20px)'};
+            line-height: #{'max(1rem,20px)'};
+            right: 3%;
+        }
         cursor: pointer;
         span{
             font-weight: 700;
@@ -991,6 +1071,7 @@ html{
         top: 0;
         width: 90vw;
         height: 100vh;
+        transition: all 0.5s;
         .videoBack{
             width: 100%;
             height: 100%;
@@ -999,7 +1080,7 @@ html{
         }
         .video{
             width: 45vw;
-            height: 45vh;
+            height: 50vh;
             position: absolute;
             top: 0; bottom: 0; left: 0; right: 0;
             margin: auto;
@@ -1011,17 +1092,13 @@ html{
         .btn{
             position: absolute;
             font-size: $fz22;
-            top: 24%;
+            top: 20%;
             right: 25%;
             color: #fff;
             cursor: pointer;
             i{}
         }
     }
-
-
-
-
 
 
 }
