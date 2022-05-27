@@ -145,6 +145,7 @@ html{
                 height: #{'max(2rem,40px)'};
             }
             .logo{
+                cursor: pointer;
                 @include tab{
                     height: $hi80;
                     width: calc(100% / 8 * 3);
@@ -158,6 +159,7 @@ html{
                 }
             }
             nav{
+                cursor: pointer;
                 @include tab{
                     font-size: #{'min(3.5em,35px)'};
                 }
@@ -191,7 +193,7 @@ html{
                     @include img();
                     background-image: url('../images/mcqueen-logo_bk_2.png');
                     height: $hi120;
-                    width: calc(100% / 7 * 4);
+                    width: calc(100% / 7 * 3);
                     margin: 0 auto;
                     margin-top: $hi120;
                 }
@@ -203,6 +205,7 @@ html{
                     margin-top: $hi120;
                 }
                 h4{
+                    cursor: pointer;
                     @include tab{
                         font-size: #{'min(3em,30px)'};
                         font-family: 'basker';
@@ -214,6 +217,7 @@ html{
                 }
             }
             .sns{
+                cursor: pointer;
                 @include tab{
                     margin-top: $hi120;
                     text-align: center;
@@ -239,6 +243,7 @@ html{
                 position: relative;
             }
             .btn{
+                cursor: pointer;
                 @include tab{
                     font-size: #{'min(4em,40px)'};
                     height: $hi40;
@@ -254,8 +259,7 @@ html{
 
     // 헤더탑
     .hdrTopWrap{
-        background-color: #000;
-        opacity: 0.7;
+        background-color:rgba(0, 0, 0, 0.7);
         position: relative;
         z-index: 1;
         @include tab{
@@ -282,12 +286,12 @@ html{
         }
         main{
             width: 100%;
-            height: #{'min(20rem,800px)'};
+            height: #{'min(19rem,760px)'};
             overflow: hidden;
             background-color: #000;
             position: relative;
             @include tab{
-                height: #{'min(15rem,600px)'};
+                height: #{'min(11rem,440px)'};
             }
             @include mob{
                 height: #{'max(7.5rem,200px)'};
@@ -313,7 +317,7 @@ html{
                 @include grid('');
             }
             header{
-                font-family: 'prata';
+                font-family: 'basker';
                 h5{
                     font-size: $fz14;
                     line-height: $hi20;
@@ -322,7 +326,7 @@ html{
                         line-height: $hi20;
                     }
                     @include mob{
-                        font-size: $fz12;
+                        font-size: #{'max(1em,10px)'};
                         line-height: #{'max(0.5rem,20px)'};
                     }
                 }
@@ -334,8 +338,8 @@ html{
                         line-height: $hi40;
                     }
                     @include mob{
-                        font-size: $fz16;
-                        line-height: $hi20;
+                        line-height: #{'max(0.5rem,20px)'};
+                        font-size: #{'max(1.2em,12px)'};
                     }
                 }
                 border-bottom: 1px solid #c3c7c7;
@@ -462,9 +466,6 @@ html{
                                     margin-top: $hi40;
                                 }
                             }
-                            @include mob{
-                                margin-top: $hi20;
-                            }
                             .image{
                                 width: calc(100% / 6 * 2.5);
                                 height: #{'min(5rem,200px)'};
@@ -479,7 +480,7 @@ html{
                                 }
                                 @include mob{
                                     width: calc(50% - 5px);
-                                    height: #{'max(5rem,160px)'};
+                                    height: #{'max(3rem,120px)'};
                                 }
                             }
                             .texts{
@@ -491,7 +492,7 @@ html{
                                 }
                                 @include mob{
                                     width: calc(50% - 5px);
-                                    height: #{'max(5rem,160px)'};
+                                    height: #{'max(3rem,120px)'};
                                 }
                                 &:hover{
                                     border-left: 10px solid $bgc;
@@ -506,6 +507,9 @@ html{
                                     @include mob{
                                         font-size: $fz14;
                                         line-height: #{'max(0.5rem,20px)'};
+                                        height: #{'max(0.5rem,20px)'};
+                                        margin-top: #{'max(0.5rem,20px)'};
+                                        overflow: hidden;
                                     }
                                 }
                                 p{
@@ -521,10 +525,11 @@ html{
                                         margin-top: $hi20;
                                     }
                                     @include mob{
-                                        font-size: $fz11;
+                                        font-size: #{'max(1.1em,11px)'};
                                         line-height: #{'max(0.5rem,20px)'};
-                                        height: #{'max(2rem,80px)'};
-                                        margin-top: #{'max(1rem,20px)'};
+                                        height: #{'max(1rem,40px)'};
+                                        margin-top: #{'max(0.5rem,20px)'};
+                                        letter-spacing: 0;
                                     }
                                 }
                                 .btn{
@@ -535,10 +540,7 @@ html{
                                     margin-top: $hi40;
                                     cursor: not-allowed;
                                     @include mob{
-                                        font-size: $fz14;
-                                        line-height: #{'max(0.5rem,20px)'};
-                                        height: #{'max(0.5rem,20px)'};
-                                        margin-top: #{'max(1rem,20px)'};
+                                        display: none;
                                     }
                                 }
                             }
@@ -710,22 +712,22 @@ html{
                             line-height: $hi60;
                         }
                         @include mob{
-                            font-size: #{'max(3em,20px)'};
-                            line-height: #{'max(1rem,20px)'};
+                            font-size: #{'max(2em,20px)'};
+                            line-height: #{'max(0.5rem,20px)'};
                         }
                     }
                     h3{
                         font-size: $fz22;
                         line-height: $hi40;
-                        font-family: 'prata';
+                        font-family: 'basker';
                         text-align: center;
                         @include tab{
                             font-size: $fz20;
                             line-height: $hi40;
                         }
                         @include mob{
-                            font-size: $fz16;
                             line-height: #{'max(0.5rem,20px)'};
+                         font-size: #{'max(1.2em,12px)'};
                         }
                     }
                     p{
@@ -772,7 +774,7 @@ html{
                 .images{
                     width: calc(50% - 20px);
                     @include tab{
-                        width: calc(100% / 8 * 4.5);
+                        width: calc(100% / 8 * 5);
                         margin: 0 auto;
                     }
                     @include mob{
@@ -1005,6 +1007,7 @@ html{
                         }
                         @include mob{
                             padding-bottom: $hi40;
+                            line-height: $hi40;
                         }
                     }
                 }

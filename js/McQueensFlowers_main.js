@@ -1,5 +1,6 @@
 $(function(){
     var wd = $(window).width();
+    var q = 0;
     var j = 0;
     var i = 0;
     var hi = 0;
@@ -12,6 +13,7 @@ $(function(){
     var paging = $('.bnr01>.paging>li');
     var cnt02Gr = $('.cnt02>section>.artView>.artGroup');
     var cnt02tab = $('.cnt02>section>.tab>li');
+    var cnt02Vw = $('.cnt02>section>.artView');
     var scrBtn = $('.scrBtn');
     var clo = $('.navBoxWrap>.close>.btn');
 
@@ -49,6 +51,33 @@ $(function(){
             });
             paging.removeClass('show');
             paging.eq(j).addClass('show');
+        });
+        // 컨텐츠02 슬라이드_모바일
+        cnt02Vw.swipeleft(function(){
+            var ind = $(this).index();
+            q++;
+            ind = q;
+            if(q >= 3){
+                q = 3;
+            }
+            cnt02Gr.css({
+                marginLeft : q*-100+'%'
+            });
+            cnt02tab.css('border-bottom','none');
+            cnt02tab.eq(ind).css('border-bottom','1px solid #000');
+        });
+        cnt02Vw.swiperight(function(){
+            var ind = $(this).index();
+            q--;
+            ind = q;
+            if(q <= 0){
+                q = 0;
+            }
+            cnt02Gr.css({
+                marginLeft : q*-100+'%'
+            })
+            cnt02tab.css('border-bottom','none');
+            cnt02tab.eq(ind).css('border-bottom','1px solid #000');
         });
     }
 

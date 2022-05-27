@@ -145,6 +145,7 @@ html{
                 height: #{'max(2rem,40px)'};
             }
             .logo{
+                cursor: pointer;
                 @include tab{
                     height: $hi80;
                     width: calc(100% / 8 * 3);
@@ -158,6 +159,7 @@ html{
                 }
             }
             nav{
+                cursor: pointer;
                 @include tab{
                     font-size: #{'min(3.5em,35px)'};
                 }
@@ -191,7 +193,7 @@ html{
                     @include img();
                     background-image: url('../images/mcqueen-logo_bk_2.png');
                     height: $hi120;
-                    width: calc(100% / 7 * 4);
+                    width: calc(100% / 7 * 3);
                     margin: 0 auto;
                     margin-top: $hi120;
                 }
@@ -203,6 +205,7 @@ html{
                     margin-top: $hi120;
                 }
                 h4{
+                    cursor: pointer;
                     @include tab{
                         font-size: #{'min(3em,30px)'};
                         font-family: 'basker';
@@ -214,6 +217,7 @@ html{
                 }
             }
             .sns{
+                cursor: pointer;
                 @include tab{
                     margin-top: $hi120;
                     text-align: center;
@@ -239,6 +243,7 @@ html{
                 position: relative;
             }
             .btn{
+                cursor: pointer;
                 @include tab{
                     font-size: #{'min(4em,40px)'};
                     height: $hi40;
@@ -259,31 +264,441 @@ html{
             height: #{'min(19rem,760px)'};
             @include img();
             background-image: url('../images/sub01/sub01_main2.jpg');
+            @include tab{
+                height: #{'min(11rem,440px)'};
+            }
+            @include mob{
+                height: #{'max(6rem,240px)'};
+            }
         }
     }
 
+    @keyframes move{
+        0%{
+            margin-left: 60vw;
+        }
+        100%{
+            margin-left: -150vw;
+        }
+    }
     // 배너
     .bnrWrap{
-        margin-top: $hi120;        
+        &:nth-child(5){
+            margin-top: $hi120;
+            @include tab{
+                margin-top: $hi80;
+            }
+        }
         .banner{
             &.bnr01{
                 .bnrTop{
-                    h3{}
+                    width: 100%;
+                    padding: $hi40 0;
+                    text-align: center;
+                    overflow: hidden;
+                    @include mob{
+                        padding: $hi40 0 0;
+                    }
+                    h3{
+                        font-size: $fz20;
+                        font-family: 'prata';
+                        color: #533d2e;
+                        text-transform: uppercase;
+                        line-height: $hi40;
+                        height: $hi40;
+                        overflow: hidden;
+                        width: 200%;
+                        animation-name: move;
+                        animation-duration: 25s;
+                        animation-iteration-count: infinite;
+                        animation-timing-function: linear;
+                        @include tab{
+                            font-size: $fz18;
+                        }
+                        @include mob{
+                            font-size: $fz14;
+                        }
+                    }
                 }
                 .bnrBtm{
-                    .bnrGr{
-                        .image{}
-                        .texts{}
+                    @include grid('pc');
+                    display: flex;
+                    justify-content: space-between;
+                    @include tab{
+                        @include grid('');
+                    }
+                    @include mob{
+                        display: block;
+                    }
+                    .bnrLeft{
+                        width: calc(50% - 10px);
+                        @include mob{
+                            display: none;
+                        }
+                        .bnrGr{
+                            height: #{'min(7.75rem,310px)'};
+                            position: relative;
+                            @include tab{
+                                height: #{'min(4.75rem,190px)'};
+                            }
+                            &:nth-child(2){
+                                margin-top: $hi20;
+                                .texts{
+                                    h2{
+                                        font-size: #{'min(4em,40px)'};
+                                    }
+                                }
+                            }
+                            .image{
+                                position: absolute;
+                                top: 0; left: 0;
+                                height: #{'min(7.75rem,310px)'};
+                                width: 100%;
+                                @include img();
+                                @for $i from 1 through 2{
+                                    &.i#{$i}{
+                                        background-image: url('../images/sub01/sub01_bnr1_i#{$i}.jpg');
+                                    }
+                                }
+                                @include tab{
+                                    height: #{'min(4.75rem,190px)'};
+                                }
+                            }
+                            .texts{
+                                top: 0; left: 0;
+                                position: absolute;
+                                width: 100%;
+                                padding: #{'min(2.37rem,95px)'} 0;
+                                height: #{'min(7.75rem,310px)'};
+                                opacity: 0;
+                                transition: all 0.5s;
+                                &:hover{
+                                    opacity: 1;
+                                }
+                                @include tab{
+                                    height: #{'min(4.75rem,190px)'};
+                                    padding: #{'min(0.875rem,35px)'};
+                                }
+                                h2{
+                                    text-align: center;
+                                    width: calc(100% / 6 * 5);
+                                    font-size: #{'min(5em,50px)'};
+                                    line-height: $hi60;
+                                    height: $hi120;
+                                    color: #fff;
+                                    font-family: 'freder';
+                                    margin: 0 auto;
+                                    overflow: hidden;
+                                }
+                            }
+                        }
+                    }
+                    .bnrRight{
+                        width: calc(50% - 10px);
+                        position: relative;
+                        @include mob{
+                            height: #{'max(5rem,200px)'};
+                            width: 100%;
+                        }
+                        .image{
+                            height: #{'min(16rem,640px)'};
+                            width: 100%;
+                            position: absolute;
+                            @include img();
+                            background-image: url('../images/sub01/sub01_bnr1_i3.jpg');
+                            @include tab{
+                                height: #{'min(10rem,400px)'};
+                            }
+                            @include mob{
+                                height: #{'max(5rem,200px)'};
+                            }
+                        }
+                        .texts{
+                            height: #{'min(16rem,640px)'};
+                            width: 100%;
+                            position: absolute;
+                            padding: #{'min(5.5rem,220px)'} 0;
+                            background-color:rgba(0, 0, 0, 0.6);
+                            opacity: 0;
+                            transition: all 0.7s;
+                            &:hover{
+                                opacity: 1;
+                            }
+                            @include tab{
+                                height: #{'min(10rem,400px)'};
+                                padding: #{'min(2.5rem,100px)'} 0;
+                            }
+                            @include mob{
+                                height: #{'max(5rem,200px)'};
+                                padding: #{'max(1.75rem,70px)'} 0;
+                            }
+                            p{
+                                width: calc(100% / 6 * 5);
+                                font-size: $fz16;
+                                line-height: $hi40;
+                                height: #{'min(5rem,200px)'};
+                                text-align: center;
+                                margin: 0 auto;
+                                overflow: hidden;
+                                color: #fff;
+                                font-family: 'basker';
+                                @include mob{
+                                    font-size: #{'max(1.2em,12px)'};
+                                    line-height: #{'max(0.5em,20px)'};
+                                    height: #{'max(1.5rem,60px)'};
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.bnr02{
+                @include grid('pc');
+                @include tab{
+                    @include grid('');
+                }
+                .bnrTop{
+                    position: relative;
+                    border-bottom: 1px solid #c3c7c7;
+                    h4{
+                        font-size: $fz14;
+                        line-height: $hi20;
+                        font-family: 'prata';
+                        position: absolute;
+                        right: 7%; bottom: 10%;
+                        @include mob{
+                            display: none;
+                        }
+                    }
+                    .btns{
+                        font-size: #{'min(4em,40px)'};
+                        line-height: $hi40;
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        @include mob{
+                            font-size: #{'max(3em,30px)'};
+                            line-height: #{'max(1rem,40px)'};
+                        }
+                        .left{
+                            cursor: pointer;
+                        }
+                        .right{
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .bnrBtm{
+                    margin-top: $hi40;
+                    @include mob{
+                        margin-top: 0;
+                    }
+                    .bnrView{
+                        width: calc((90vw - 1080px) / 2 + 100%);
+                        overflow: hidden;
+                        @include tab{
+                            width: 100%;
+                        }
+                        .bnrGroup{
+                            width: 200%;
+                            display: flex;
+                            justify-content: space-between;
+                            @include tab{
+                                width: 300%;
+                            }
+                            .bnrGr{
+                                width: calc(100% / 3);
+                                display: flex;
+                                justify-content: space-between;
+                                margin-right: 30px;
+                                &:nth-child(1)~.bnrGr{
+                                    .texts{
+                                        display: none;
+                                    }
+                                }
+                                @include tab{
+                                    margin-right: 0;
+                                }
+                                @include mob{
+                                    display: block;
+                                }
+                                .texts{
+                                    width: calc(100% / 12 * 5);
+                                    text-align: center;
+                                    font-family: 'basker';
+                                    padding: #{'min(2.75rem,110px)'} 0;
+                                    @include tab{
+                                        width: 50%;
+                                        padding: $hi40 0;
+                                    }
+                                    @include mob{
+                                        width: 100%;
+                                        padding: #{'max(0.5rem,20px)'};
+                                    }
+                                    h2{
+                                        font-size: $fz22;
+                                        line-height: $hi40;
+                                        @include tab{
+                                            font-size: $fz16;
+                                        }
+                                        @include mob{
+                                            font-size: #{'max(1.2em,12px)'};
+                                            line-height: #{'max(0.5rem,20px)'};
+                                        }
+                                    }
+                                    p{
+                                        width: calc(100% / 5 * 4);
+                                        font-size: $fz14;
+                                        line-height: $hi20;
+                                        height: #{'min(2.5rem,100px)'};
+                                        overflow: hidden;
+                                        margin: 0 auto;
+                                        margin-top: $hi40;
+                                        @include tab{
+                                            font-size: $fz12;
+                                            margin-top: $hi20;
+                                            width: calc(100% / 4 * 3.7);
+                                        }
+                                        @include mob{
+                                            display: none;
+                                        }
+                                    }
+                                }
+                                .image{
+                                    width: calc(100% / 12 * 7);
+                                    height: #{'min(10rem,400px)'};
+                                    @include img();
+                                    @for $i from 1 through 3{
+                                        &.i#{$i}{
+                                            background-image: url('../images/sub01/sub01_bnr2_i#{$i}.jpg');
+                                        }
+                                    }
+                                    @include tab{
+                                        width: 50%;
+                                        height: #{'min(6rem,240px)'};
+                                    }
+                                    @include mob{
+                                        width: 100%;
+                                        height: #{'max(5rem,200px)'};
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
     }
 
-
-
-
-
+    // 컨텐츠
+    .cntWrap{
+        margin-top: $hi120;
+        @include tab{
+            margin-top: $hi80;
+        }
+        .content.cnt01{
+            @include grid('pc');
+            @include tab{
+                @include grid('');
+            }
+            header{
+                border-bottom: 1px solid #c3c7c7;
+                font-family: 'basker';
+                &::after{
+                    display: block;
+                    content: '';
+                    clear: both;
+                }
+                h5{
+                    font-size: $fz14;
+                    line-height: $hi20;
+                    @include mob{
+                        font-size: #{'max(1em,10px)'};
+                        line-height: #{'max(0.5rem,20px)'};
+                    }
+                }
+                h2{
+                    font-size: $fz22;
+                    line-height: $hi40;
+                    float: left;
+                    @include tab{
+                        font-size: $fz20;
+                    }
+                    @include mob{
+                        line-height: #{'max(0.5rem,20px)'};
+                        font-size: #{'max(1.2em,12px)'};
+                    }
+                }
+                .btn{
+                    font-size: $fz22;
+                    line-height: $hi40;
+                    cursor: not-allowed;
+                    float: right;
+                    @include tab{
+                        font-size: $fz20;
+                    }
+                    @include mob{
+                        font-size: #{'max(1.2em,12px)'};
+                        line-height: #{'max(0.5rem,20px)'};
+                    }
+                }
+            }
+            section{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                article{
+                    margin-top: $hi40;
+                    width: calc(100% / 4 - 10px);
+                    @include tab{
+                        &:nth-child(4)~article{
+                            margin-top: $hi20;
+                        }
+                    }
+                    @include mob{
+                        margin-top: $hi20;
+                        width: calc(50% - 10px);
+                        &:nth-child(4)~article{
+                            display: none;
+                        }
+                    }
+                    .image{
+                        height: #{'min(7rem,280px)'};
+                        @include img();
+                        @for $i from 1 through 8{
+                            &.i#{$i}{
+                                background-image: url('../images/sub01/sub01_cnt_i#{$i}.jpg');
+                            }
+                        }
+                        @include tab{
+                            height: #{'min(5rem,200px)'};
+                        }
+                        @include mob{
+                            height: #{'max(4rem,160px)'};
+                        }
+                    }
+                    .texts{
+                        text-align: center;
+                        h3{
+                            font-size: $fz14;
+                            line-height: $hi40;
+                            font-family: 'prata';
+                            @include mob{
+                                font-size: $fz12;
+                            }
+                        }
+                        h5{
+                            font-size: $fz14;
+                            line-height: $hi20;
+                            @include mob{
+                                font-size: $fz11;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     // 푸터
     .ftrWrap{
@@ -369,6 +784,7 @@ html{
                         }
                         @include mob{
                             padding-bottom: $hi40;
+                            line-height: $hi40;
                         }
                     }
                 }
@@ -425,9 +841,5 @@ html{
             font-size: $fz16;
         }
     }
-
-
-
-
 
 }
