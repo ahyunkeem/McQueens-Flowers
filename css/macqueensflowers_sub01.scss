@@ -500,7 +500,7 @@ html{
                             width: 100%;
                         }
                         .bnrGroup{
-                            width: 200%;
+                            width: 250%;
                             display: flex;
                             justify-content: space-between;
                             @include tab{
@@ -511,9 +511,16 @@ html{
                                 display: flex;
                                 justify-content: space-between;
                                 margin-right: 30px;
-                                &:nth-child(1)~.bnrGr{
+                                // &:nth-child(1)~.bnrGr{
+                                //     .texts{
+                                //         display: none;
+                                //         opacity: 0;
+                                //     }
+                                // }
+                                &:nth-child(1){
                                     .texts{
-                                        display: none;
+                                        width: calc(100% / 12 * 5);
+                                        opacity: 1;
                                     }
                                 }
                                 @include tab{
@@ -523,10 +530,30 @@ html{
                                     display: block;
                                 }
                                 .texts{
-                                    width: calc(100% / 12 * 5);
+                                    width: 0;
+                                    opacity: 0;
+                                    overflow: hidden;
                                     text-align: center;
                                     font-family: 'basker';
                                     padding: #{'min(2.75rem,110px)'} 0;
+                                    transition: opacity 0.5s;
+                                    &.on{
+                                        width: calc(100% / 12 * 5);
+                                        opacity: 0;
+                                        animation-name: show;
+                                        animation-fill-mode: forwards;
+                                        animation-duration: 0.5s;
+                                        animation-delay: 0.9s;
+                                        animation-iteration-count: 1;
+                                    }
+                                    @keyframes show {
+                                    0%{
+                                        opacity: 0;
+                                    }
+                                    100%{
+                                        opacity: 1;
+                                    }
+                                    }
                                     @include tab{
                                         width: 50%;
                                         padding: $hi40 0;
@@ -820,6 +847,7 @@ html{
         overflow: hidden;
         height: 40px;
         line-height: 40px;
+        transition: height 0.3s;
         @include tab{
             width: calc(100% / 8);
         }

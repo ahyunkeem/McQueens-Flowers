@@ -1,0 +1,610 @@
+// 높이
+$hi20: #{'min(0.5rem,20px)'};
+$hi40: #{'min(1rem,40px)'};
+$hi60: #{'min(1.5rem,60px)'};
+$hi80: #{'min(2rem,80px)'};
+$hi120: #{'min(3rem,120px)'};
+// 폰트
+$fz11: #{'min(1.1em,11px)'};
+$fz12: #{'min(1.2em,12px)'};
+$fz14: #{'min(1.4em,14px)'};
+$fz16: #{'min(1.6em,16px)'};
+$fz18: #{'min(1.8em,18px)'};
+$fz20: #{'min(2em,20px)'};
+$fz22: #{'min(2.2em,22px)'};
+// 컬러
+$bgc: #093037;
+$btm : 1px solid #c3c7c7;
+
+// 그리드
+@mixin grid($dev){
+    @if($dev == 'pc'){
+        width: 80%;
+        max-width: 1080px;
+    }
+    @else{
+        width: 90%;
+        max-width: 700px;
+    }
+    margin: 0 auto;
+}
+// 이미지 수식
+@mixin img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+// 폰트
+@mixin ff($fontname, $url) {
+    @font-face {
+        font-family: '#{$fontname}';
+        src: url('../css/fonts/#{$url}') format('truetype');
+    }
+}
+@include ff(basker,'Baskervville-Regular.ttf');
+@include ff(prata,'Prata-Regular.ttf');
+@include ff(Freder,'FrederickatheGreat-Regular.ttf');
+@include ff(Libre,'LibreBarcode39Text-Regular.ttf');
+
+
+// 반응형 미디어쿼리
+@mixin mob{
+    @media (max-width:420px) and (min-width:0px){
+        @content;
+    }
+}
+@mixin tab{
+    @media (max-width:1024px) and (min-width:0px){
+        @content;
+    }
+}
+
+
+html{
+    font-size: 3vw;
+    @include tab{
+        font-size: 5vw;
+    }
+    body{
+        font-size: 0.7vw;
+        position: relative;
+        overflow-x: hidden;
+        @include tab{
+            font-size: 1vw;
+        }
+    }
+}
+
+
+
+// 헤더 영역
+.hdrArea{
+    width: 10%;
+    height: 100vh;
+    position: fixed;
+    background-color: $bgc;
+    @include tab{
+        display: none;
+    }
+    .hdrWrap{
+        header{
+            text-align: center;
+            .logo{
+                margin-top: $hi40;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image: url('../images/mcqueen-logo_wh_2.png');
+                height: $hi80;
+                cursor: pointer;
+            }
+            nav{
+                margin-top: $hi40;
+                font-family: 'basker';
+                h4{
+                    margin-top: $hi40;
+                    line-height: $hi40;
+                    font-size: $fz16;
+                    color: #fff;
+                    cursor: pointer;
+                    &:nth-child(3)~h4{
+                        cursor: not-allowed;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 컨텐츠 영역
+.cntArea{
+    width: 90%;
+    margin-left: 10%;
+    @include tab{
+        width: 100%;
+        margin-left: 0;
+    }
+
+
+    // tab 헤더
+    .hdrWrap{
+        display: none;
+        @include tab{
+            display: block;
+            @include grid('');
+            background-color: #fff;
+        }
+        header{
+            @include tab{
+            line-height: $hi80;
+            height: $hi80;
+            display: flex;
+            justify-content: space-between;
+            }
+            @include mob{
+                line-height: #{'max(2rem,40px)'};
+                height: #{'max(2rem,40px)'};
+            }
+            .logo{
+                cursor: pointer;
+                @include tab{
+                    height: $hi80;
+                    width: calc(100% / 8 * 3);
+                    margin: 0 auto;
+                    @include img();
+                    background-image: url('../images/mcqueen-logo_bk_2.png');
+                }
+                @include mob{
+                    height: #{'max(2rem,40px)'};
+                    width: 40%;
+                }
+            }
+            nav{
+                cursor: pointer;
+                @include tab{
+                    font-size: #{'min(3.5em,35px)'};
+                }
+                @include mob{
+                    font-size: #{'max(3em,20px)'};
+                }
+                i{}
+            }
+        }
+    }
+    // 네브박스
+    .navBoxWrap{
+        display: none;
+        @include tab{
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            z-index: 6;
+            top: 0;
+            margin-left: -100vw;
+            transition: all 0.5s;
+        }
+        .navBox{
+            @include tab{
+                height: 100vh;
+                width: 90vw;
+                background-color: #fff;
+            }
+            .logo{
+                @include tab{
+                    @include img();
+                    background-image: url('../images/mcqueen-logo_bk_2.png');
+                    height: $hi120;
+                    width: calc(100% / 7 * 3);
+                    margin: 0 auto;
+                    margin-top: $hi120;
+                }
+            }
+            nav{
+                @include tab{
+                    line-height: $hi80;
+                    text-align: center;
+                    margin-top: $hi120;
+                }
+                h4{
+                    cursor: pointer;
+                    @include tab{
+                        font-size: #{'min(3em,30px)'};
+                        font-family: 'basker';
+                        border-top: 1px solid #c3c7c7;
+                        &:nth-child(5){
+                            border-bottom: 1px solid #c3c7c7;
+                        }
+                    }
+                }
+            }
+            .sns{
+                cursor: pointer;
+                @include tab{
+                    margin-top: $hi120;
+                    text-align: center;
+                    font-size: #{'min(4em,40px)'};
+                    line-height: $hi80;
+                }
+                i{}
+            }
+            p{
+                @include tab{
+                    text-align: center;
+                    font-size: $fz22;
+                    line-height: $hi40;
+                }
+            }
+        }
+        .close{
+            @include tab{
+                height: 100vh;
+                width: 10vw;
+                background-color: #000;
+                opacity: 0.4;
+                position: relative;
+            }
+            .btn{
+                cursor: pointer;
+                @include tab{
+                    font-size: #{'min(4em,40px)'};
+                    height: $hi40;
+                    color: #fff;
+                    text-align: center;
+                    position: absolute;
+                    top: 0; bottom: 0; left: 0; right: 0;
+                    margin: auto;
+                }
+            }
+        }
+    }
+
+    // 메인
+    .mainWrap{
+        @include img();
+        background-image: url('../images/sub02/sub02_main_i1.jpg');
+        main{
+            @include grid('pc');
+            padding: #{'min(8rem,320px)'} 0 #{'min(6rem,240px)'};
+            position: relative;
+            .texts{
+                font-family: 'prata';
+                color: #fff;
+                h2{
+                    font-size: $fz22;
+                    line-height: $hi40;
+                }
+                p{
+                    font-size: $fz14;
+                    line-height: $hi20;
+                    height: $hi80;
+                    width: calc(100% / 12 * 6);
+                    overflow: hidden;
+                    margin-top: $hi40;
+                }
+            }
+            .image{
+                @include img();
+                background-image: url('../images/sub02/sub02_main_i3.jpg');
+                height: #{'min(11rem,440px)'};
+                width: calc(100% / 12 * 3.5);
+                box-shadow: 2px 2px 13px #000;
+                position: absolute;
+                bottom: -10%; right: 0;
+                transform: rotate(6deg);
+            }
+        }
+    }
+
+    // 배너
+    .bnrWrap{
+        margin-top: $hi120;
+        .banner{
+            &.bnr01{
+                @include grid('pc');
+                .accordion{
+                    li{
+                        &:nth-child(odd){
+                            display: flex;
+                            justify-content: space-between;
+                            font-family: 'basker';
+                            line-height: $hi40;
+                            border-bottom: $btm;
+                            cursor: pointer;
+                            h2{
+                                font-size: $fz22;
+                            }
+                            span{
+                                font-size: $fz18;
+                            }
+                        }
+                        &:nth-child(even){
+                            display: flex;
+                            justify-content: space-around;
+                            font-family: 'prata';
+                            height: 0;
+                            overflow: hidden;
+                            p{
+                                width: calc(100% / 12 * 4);
+                                font-size: $fz14;
+                                line-height: $hi20;
+                                height: $hi80;
+                                overflow: hidden;
+                                text-align: right;
+                                margin-top: #{'min(1.5rem,60px)'};
+                            }
+                            .image{
+                                width: calc(100% / 12 * 2);
+                                height: #{'min(5rem,200px)'};
+                                @include img();
+                                @for $i from 1 through 3{
+                                    &.i#{$i}{
+                                        background-image: url('../images/sub02/sub02_bnr1_i#{$i}.png');
+                                    }
+                                }
+                            }
+                            .info{
+                                width: calc(100% / 12 * 2);
+                                font-family: 'prata';
+                                font-size: $fz14;
+                                padding: #{'min(1.5rem,60px)'} 0;
+                                .btn{
+                                    line-height: $hi40;
+                                    background-color: #f3f3ec;
+                                    text-align: center;
+                                    cursor: not-allowed;
+                                }
+                                h4{
+                                    &:nth-child(2){
+                                        margin-top:$hi20;
+                                    }
+                                    line-height: $hi20;
+                                }
+                            }
+                        }
+                        &.show+li{
+                            height: #{'min(5rem,200px)'};
+                        }
+                    }
+                }
+            }
+            &.bnr02{
+                .btns{
+                    @include grid('pc');
+                    width: 100%;
+                    display: flex;
+                    justify-content: right;
+                    line-height: $hi80;
+                    font-size: #{'min(5em,50px)'};
+                    .left{
+                        cursor: pointer;
+                    }
+                    .right{
+                        margin-left: 20px;
+                        cursor: pointer;
+                    }
+                }
+                .imgView{
+                    width: 100%;
+                    overflow: hidden;
+                    .imgGroup{
+                        width: 161.5%;
+                        display: flex;
+                        justify-content: space-between;
+                        .image{
+                            height: #{'min(10rem,400px)'};
+                            width: calc(100% / 8 - 10px);
+                            @include img();
+                            @for $i from 1 through 8{
+                                &.i#{$i}{
+                                    background-image: url('../images/sub02/sub02_bnr2_i#{$i}.jpg');
+                                }
+                            }
+                        }
+                    }
+                }
+                .control{
+                    @include grid('pc');
+                    width: 100%;
+                    display: flex;
+                    justify-content: right;
+                    font-size: #{'min(3em,30px)'};
+                    line-height: $hi40;
+                    .play{
+                        cursor: pointer;
+                        i{}
+                    }
+                    .pause{
+                        margin-left: 20px;
+                        cursor: pointer;
+                        i{}
+                    }
+                }
+            }
+        }
+    }
+
+    // 컨텐츠
+    .cntWrap{
+        margin-top: $hi120;
+        .content{
+            @include grid('pc');
+            &.cnt01{
+                header{
+                    h2{
+                        font-size: $fz22;
+                        line-height: $hi40;
+                        font-family: 'basker';
+                        border-bottom: $btm;
+                    }
+                }
+                section{
+                    margin-top: $hi40;
+                    article{
+                        display: flex;
+                        justify-content: space-between;
+                        .image{
+                            width: 50%;
+                            height: #{'min(11rem,440px)'};
+                        }
+                        .texts{
+                            width: 50%;
+                            padding: $hi80 calc(100% / 12);
+                            p{
+                                line-height: $hi40;
+                                font-size: $fz16;
+                                font-family: 'basker';
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+    // 푸터
+    .ftrWrap{
+        margin-top: $hi120;
+        background-color: #f3f3ec;
+        @include tab{
+            margin-top: $hi80;
+        }
+        footer{
+            @include grid('pc');
+            padding-top: $hi40;
+            @include tab{
+                @include grid('');
+            }
+            .info{
+                display: flex;
+                justify-content: space-between;
+                @include tab{
+                    display: block;
+                }
+                .ftrLeft{
+                    width: calc(100% / 12 * 7);
+                    display: flex;
+                    justify-content: space-between;
+                    @include tab{
+                        display: none;
+                    }
+                    nav{
+                        cursor: not-allowed;
+                        h3{
+                            font-family: 'prata';
+                            font-size: $fz16;
+                            line-height: $hi40;
+                        }
+                        h4{
+                            font-family: 'basker';
+                            font-size: $fz14;
+                            line-height: #{'min(0.75rem,30px)'};
+                        }
+                    }
+                }
+                .ftrRight{
+                    width: calc(100% / 12 * 3.5);
+                    @include tab{
+                        margin: 0 auto;
+                    }
+                    @include mob{
+                        width: calc(100% / 4 * 3);
+                    }
+                    h3{
+                        font-family: 'prata';
+                        font-size: $fz16;
+                        text-align: right;
+                        line-height: $hi40;
+                        @include tab{
+                            text-align: center;
+                        }
+                    }
+                    .sns{
+                        font-size: #{'min(2.8em,28px)'};
+                        display: flex;
+                        justify-content: right;
+                        text-align: center;
+                        @include tab{
+                            justify-content: center;
+                        }
+                        i{
+                            line-height: $hi40;
+                            margin-left: 10px;
+                            cursor: pointer;
+                            @include mob{
+                                font-size: #{'min(2.8em,18px)'};
+                            }
+                        }
+                    }
+                    p{
+                        font-family: 'basker';
+                        font-size: $fz14;
+                        line-height: $hi20;
+                        text-align: right;
+                        @include tab{
+                            text-align: center;
+                        }
+                        @include mob{
+                            padding-bottom: $hi40;
+                            line-height: $hi40;
+                        }
+                    }
+                }
+            }
+            .logo{
+                margin-top: $hi40;
+                font-family: 'Libre';
+                font-size: #{'min(4.8em,48px)'};
+                line-height: $hi80;
+                border-top: 1px solid #c3c7c7;
+                text-align: center;
+                @include tab{
+                    font-size: #{'min(4em,40px)'};
+                    margin-top: $hi20;
+                }
+                @include mob{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    // 스크롤 버튼
+    .scrBtn{
+        position: fixed;
+        bottom: 0; right: 2%;
+        color: #fff;
+        background-color: #3e3e3e;
+        width: calc(100% / 12);
+        text-align: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        overflow: hidden;
+        height: 40px;
+        line-height: 40px;
+        transition: height 0.3s;
+        @include tab{
+            width: calc(100% / 8);
+        }
+        @include mob{
+            width: calc(100% / 4);
+            height: 20px;
+            line-height: 20px;
+            right: 3%;
+        }
+        cursor: pointer;
+        span{
+            font-weight: 700;
+            font-size: $fz18;
+        }
+        .top{
+            font-size: $fz16;
+        }
+        .btm{
+            font-size: $fz16;
+        }
+    }
+
+}

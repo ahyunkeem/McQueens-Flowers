@@ -620,7 +620,8 @@ html{
                                         }
                                     }
                                     .texts{
-                                        color: #565656;                                        opacity: 0;
+                                        color: #565656;                                        
+                                        opacity: 0;
                                         height: $hi60;
                                         position: absolute;
                                         top: 0; left: 0; right: 0;
@@ -1043,6 +1044,7 @@ html{
         overflow: hidden;
         height: 40px;
         line-height: 40px;
+        transition: height 0.3s;
         @include tab{
             width: calc(100% / 8);
         }
