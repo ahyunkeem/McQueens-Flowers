@@ -155,7 +155,7 @@ html{
                 }
                 @include mob{
                     height: #{'max(2rem,40px)'};
-                    width: 40%;
+                    width: 43%;
                 }
             }
             nav{
@@ -193,7 +193,7 @@ html{
                     @include img();
                     background-image: url('../images/mcqueen-logo_bk_2.png');
                     height: $hi120;
-                    width: calc(100% / 7 * 3);
+                    width: calc(100% / 7 * 4);
                     margin: 0 auto;
                     margin-top: $hi120;
                 }

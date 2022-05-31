@@ -155,7 +155,7 @@ html{
                 }
                 @include mob{
                     height: #{'max(2rem,40px)'};
-                    width: 40%;
+                    width: 43%;
                 }
             }
             nav{
@@ -193,7 +193,7 @@ html{
                     @include img();
                     background-image: url('../images/mcqueen-logo_bk_2.png');
                     height: $hi120;
-                    width: calc(100% / 7 * 3);
+                    width: calc(100% / 7 * 4);
                     margin: 0 auto;
                     margin-top: $hi120;
                 }
@@ -521,6 +521,10 @@ html{
                                     .texts{
                                         width: calc(100% / 12 * 5);
                                         opacity: 1;
+                                        @include mob{
+                                            width: calc(100% / 4 * 3);
+                                            margin: 0 auto;
+                                        }
                                     }
                                 }
                                 @include tab{
@@ -537,15 +541,15 @@ html{
                                     font-family: 'basker';
                                     padding: #{'min(2.75rem,110px)'} 0;
                                     transition: opacity 0.5s;
-                                    &.on{
-                                        width: calc(100% / 12 * 5);
-                                        opacity: 0;
-                                        animation-name: show;
-                                        animation-fill-mode: forwards;
-                                        animation-duration: 0.5s;
-                                        animation-delay: 0.9s;
-                                        animation-iteration-count: 1;
-                                    }
+                                    // &.on{
+                                    //     width: calc(100% / 12 * 5);
+                                    //     opacity: 0;
+                                    //     animation-name: show;
+                                    //     animation-fill-mode: forwards;
+                                    //     animation-duration: 0.5s;
+                                    //     animation-delay: 0.9s;
+                                    //     animation-iteration-count: 1;
+                                    // }
                                     @keyframes show {
                                     0%{
                                         opacity: 0;

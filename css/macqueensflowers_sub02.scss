@@ -156,7 +156,7 @@ html{
                 }
                 @include mob{
                     height: #{'max(2rem,40px)'};
-                    width: 40%;
+                    width: 43%;
                 }
             }
             nav{
@@ -194,7 +194,7 @@ html{
                     @include img();
                     background-image: url('../images/mcqueen-logo_bk_2.png');
                     height: $hi120;
-                    width: calc(100% / 7 * 3);
+                    width: calc(100% / 7 * 4);
                     margin: 0 auto;
                     margin-top: $hi120;
                 }
@@ -266,12 +266,24 @@ html{
             @include grid('pc');
             padding: #{'min(8rem,320px)'} 0 #{'min(6rem,240px)'};
             position: relative;
+            @include tab{
+                @include grid('');
+                padding: $hi120 0;
+            }
+            @include mob{
+                padding: #{'max(2rem,80px)'} 0;
+            }
             .texts{
                 font-family: 'prata';
                 color: #fff;
                 h2{
                     font-size: $fz22;
                     line-height: $hi40;
+                    @include mob{
+                        font-size: #{'max(1.2em,12px)'};
+                        line-height: #{'max(0.5rem,20px)'};
+                        text-align: center;
+                    }
                 }
                 p{
                     font-size: $fz14;
@@ -280,6 +292,18 @@ html{
                     width: calc(100% / 12 * 6);
                     overflow: hidden;
                     margin-top: $hi40;
+                    @include tab{
+                        width: calc(100% / 8 * 4.2);
+                    }
+                    @include mob{
+                        width: calc(100% / 4 * 3.7);
+                        font-size: #{'max(1.1em,11px)'};
+                        line-height: #{'max(0.5rem,20px)'};
+                        height: #{'max(1rem,40px)'};
+                        margin: 0 auto;
+                        text-align: center;
+                        margin-top: #{'max(1rem,40px)'};
+                    }
                 }
             }
             .image{
@@ -291,6 +315,13 @@ html{
                 position: absolute;
                 bottom: -10%; right: 0;
                 transform: rotate(6deg);
+                @include tab{
+                    height: #{'min(7rem,280px)'};
+                    width: calc(100% / 8 * 2.2);
+                }
+                @include mob{
+                    display: none;
+                }
             }
         }
     }
@@ -298,9 +329,15 @@ html{
     // 배너
     .bnrWrap{
         margin-top: $hi120;
+        @include tab{
+            margin-top: $hi80;
+        }
         .banner{
             &.bnr01{
                 @include grid('pc');
+                @include tab{
+                    @include grid('');
+                }
                 .accordion{
                     li{
                         &:nth-child(odd){
@@ -312,9 +349,22 @@ html{
                             cursor: pointer;
                             h2{
                                 font-size: $fz22;
+                                @include tab{
+                                    font-size: $fz20;
+                                }
+                                @include mob{
+                                    font-size: #{'max(1.2em,12px)'};
+                                    line-height: #{'max(0.5rem,20px)'};
+                                }
                             }
                             span{
                                 font-size: $fz18;
+                                @include tab{
+                                    font-size: $fz14;
+                                }
+                                @include mob{
+                                    display: none;
+                                }
                             }
                         }
                         &:nth-child(even){
@@ -331,6 +381,12 @@ html{
                                 overflow: hidden;
                                 text-align: right;
                                 margin-top: #{'min(1.5rem,60px)'};
+                                @include tab{
+                                    width: calc(100% / 8 * 3);
+                                }
+                                @include mob{
+                                    display: none;
+                                }
                             }
                             .image{
                                 width: calc(100% / 12 * 2);
@@ -341,28 +397,57 @@ html{
                                         background-image: url('../images/sub02/sub02_bnr1_i#{$i}.png');
                                     }
                                 }
+                                @include tab{
+                                    width: calc(100% / 8 * 2);
+                                }
+                                @include mob{
+                                    width: calc(50% - 10px);
+                                    height: #{'max(4rem,120px)'};
+                                }
                             }
                             .info{
                                 width: calc(100% / 12 * 2);
                                 font-family: 'prata';
                                 font-size: $fz14;
                                 padding: #{'min(1.5rem,60px)'} 0;
+                                @include tab{
+                                    padding: $hi80 0;
+                                }
+                                @include mob{
+                                    font-size: #{'max(1em,10px)'};
+                                    padding: #{'max(1.125rem,45px)'} 0;
+                                }
                                 .btn{
                                     line-height: $hi40;
                                     background-color: #f3f3ec;
                                     text-align: center;
                                     cursor: not-allowed;
+                                    @include mob{
+                                        line-height: #{'max(0.75rem,30px)'};
+                                    }
                                 }
                                 h4{
                                     &:nth-child(2){
                                         margin-top:$hi20;
                                     }
                                     line-height: $hi20;
+                                    @include tab{
+                                        display: none;
+                                    }
+                                }
+                                @include tab{
+                                    width: calc(100% / 8 * 2);
+                                }
+                                @include mob{
+                                    width: calc(50% - 10px);
                                 }
                             }
                         }
                         &.show+li{
                             height: #{'min(5rem,200px)'};
+                            @include mob{
+                                height: #{'max(4rem,120px)'};
+                            }
                         }
                     }
                 }
@@ -375,21 +460,43 @@ html{
                     justify-content: right;
                     line-height: $hi80;
                     font-size: #{'min(5em,50px)'};
+                    @include tab{
+                        @include grid('');
+                        line-height: $hi60;
+                    }
+                    @include mob{
+                        line-height: #{'max(0.75rem,30px)'};
+                        font-size: #{'max(2em,20px)'};
+                        justify-content: space-between;
+                    }
                     .left{
                         cursor: pointer;
                     }
                     .right{
                         margin-left: 20px;
                         cursor: pointer;
+                        @include mob{
+                            margin-left: 0;
+                        }
                     }
                 }
                 .imgView{
                     width: 100%;
                     overflow: hidden;
+                    @include mob{
+                        width: calc(100% / 4 * 3);
+                        margin: 0 auto;
+                    }
                     .imgGroup{
                         width: 161.5%;
                         display: flex;
                         justify-content: space-between;
+                        @include tab{
+                            width: 268.5%;
+                        }
+                        @include mob{
+                            width: 416%;
+                        }
                         .image{
                             height: #{'min(10rem,400px)'};
                             width: calc(100% / 8 - 10px);
@@ -398,6 +505,12 @@ html{
                                 &.i#{$i}{
                                     background-image: url('../images/sub02/sub02_bnr2_i#{$i}.jpg');
                                 }
+                            }
+                            @include tab{
+                                height: #{'min(9rem,360px)'};
+                            }
+                            @include mob{
+                                height: #{'max(4rem,160px)'};
                             }
                         }
                     }
@@ -409,6 +522,14 @@ html{
                     justify-content: right;
                     font-size: #{'min(3em,30px)'};
                     line-height: $hi40;
+                    @include tab{
+                        @include grid('');
+                    }
+                    @include mob{
+                        line-height: #{'max(0.75rem,30px)'};
+                        font-size: #{'max(1.2em,12px)'};
+                        margin-right: calc(100% / 4);
+                    }
                     .play{
                         cursor: pointer;
                         i{}
@@ -426,8 +547,14 @@ html{
     // 컨텐츠
     .cntWrap{
         margin-top: $hi120;
+        @include tab{
+            margin-top: $hi80;
+        }
         .content{
             @include grid('pc');
+            @include tab{
+                @include grid('');
+            }
             &.cnt01{
                 header{
                     h2{
@@ -435,6 +562,13 @@ html{
                         line-height: $hi40;
                         font-family: 'basker';
                         border-bottom: $btm;
+                        @include tab{
+                            font-size: $fz20;
+                        }
+                        @include mob{
+                            font-size: #{'max(1.2em,12px)'};
+                            line-height: #{'max(0.5rem,20px)'};
+                        }
                     }
                 }
                 section{
@@ -442,17 +576,48 @@ html{
                     article{
                         display: flex;
                         justify-content: space-between;
+                        @include mob{
+                            display: block;
+                        }
                         .image{
                             width: 50%;
                             height: #{'min(11rem,440px)'};
+                            overflow: hidden;
+                            @include tab{
+                                height: #{'min(9rem,360px)'};
+                            }
+                            @include mob{
+                                width: calc(100% / 4 * 3);
+                                height: #{'max(5rem,200px)'};
+                                margin: 0 auto;
+                            }
                         }
                         .texts{
                             width: 50%;
                             padding: $hi80 calc(100% / 12);
+                            @include tab{
+                                padding: $hi40 0 $hi40;
+                                margin-left: 20px;
+                            }
+                            @include mob{
+                                width: 100%;
+                                padding: 0;
+                                text-align: center;
+                                margin-top: $hi40;
+                                margin-left: 0;
+                            }
                             p{
                                 line-height: $hi40;
                                 font-size: $fz16;
                                 font-family: 'basker';
+                                height: #{'min(7rem,280px)'};
+                                overflow: hidden;
+                                @include mob{
+                                    font-size: #{'max(1.1em,11px)'};
+                                    line-height: #{'max(0.5rem,20px)'};
+                                    height: #{'max(2rem,80px)'};
+                                    overflow: hidden;
+                                }
                             }
                         }
                     }
