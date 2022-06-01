@@ -106,7 +106,7 @@ html{
                     font-size: $fz16;
                     color: #fff;
                     cursor: pointer;
-                    &:nth-child(3)~h4{
+                    &:nth-child(2)~h4{
                         cursor: not-allowed;
                     }
                 }
@@ -603,6 +603,7 @@ html{
                                                 background-image: url('../images/main/main_cnt2_i#{$i}.png');
                                             }
                                         }
+                                        cursor: pointer;
                                         &:hover{
                                             margin-top: $hi40;
                                             height: #{'min(7rem,280px)'};

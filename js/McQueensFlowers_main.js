@@ -172,5 +172,4 @@ $(function(){
         cnt02tab.css('border-bottom','none');
         $(this).css('border-bottom','1px solid #000');
     });
-
 });

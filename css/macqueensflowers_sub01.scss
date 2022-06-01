@@ -106,7 +106,7 @@ html{
                     font-size: $fz16;
                     color: #fff;
                     cursor: pointer;
-                    &:nth-child(3)~h4{
+                    &:nth-child(2)~h4{
                         cursor: not-allowed;
                     }
                 }
@@ -372,6 +372,7 @@ html{
                                 height: #{'min(7.75rem,310px)'};
                                 opacity: 0;
                                 transition: all 0.5s;
+                                cursor: pointer;
                                 &:hover{
                                     opacity: 1;
                                 }
@@ -421,6 +422,7 @@ html{
                             background-color:rgba(0, 0, 0, 0.6);
                             opacity: 0;
                             transition: all 0.7s;
+                            cursor: pointer;
                             &:hover{
                                 opacity: 1;
                             }
@@ -503,20 +505,14 @@ html{
                             width: 250%;
                             display: flex;
                             justify-content: space-between;
+                            transition: margin-left 1s;
                             @include tab{
                                 width: 300%;
                             }
                             .bnrGr{
-                                width: calc(100% / 3);
+                                width: calc(100% / 3 - 10px);
                                 display: flex;
-                                justify-content: space-between;
-                                margin-right: 30px;
-                                // &:nth-child(1)~.bnrGr{
-                                //     .texts{
-                                //         display: none;
-                                //         opacity: 0;
-                                //     }
-                                // }
+                                justify-content: start;
                                 &:nth-child(1){
                                     .texts{
                                         width: calc(100% / 12 * 5);
@@ -534,47 +530,47 @@ html{
                                     display: block;
                                 }
                                 .texts{
+                                    height: #{'min(10rem,400px)'};
                                     width: 0;
                                     opacity: 0;
-                                    overflow: hidden;
+                                    transition: width 1s;
                                     text-align: center;
                                     font-family: 'basker';
-                                    padding: #{'min(2.75rem,110px)'} 0;
-                                    transition: opacity 0.5s;
-                                    // &.on{
-                                    //     width: calc(100% / 12 * 5);
-                                    //     opacity: 0;
-                                    //     animation-name: show;
-                                    //     animation-fill-mode: forwards;
-                                    //     animation-duration: 0.5s;
-                                    //     animation-delay: 0.9s;
-                                    //     animation-iteration-count: 1;
-                                    // }
-                                    @keyframes show {
-                                    0%{
+                                    &.on{
+                                        width: calc(100% / 12 * 5);
                                         opacity: 0;
-                                    }
-                                    100%{
-                                        opacity: 1;
-                                    }
+                                        animation-name: show;
+                                        animation-fill-mode: forwards;
+                                        animation-duration: 0.5s;
+                                        animation-delay: 0.9s;
+                                        animation-iteration-count: 1;
+                                        @include tab{
+                                            width: 50%;
+                                        }
+                                        @include mob{
+                                            width: calc(100% / 4 * 3);
+                                        }
                                     }
                                     @include tab{
-                                        width: 50%;
-                                        padding: $hi40 0;
+                                        height: #{'min(6rem,240px)'};
                                     }
                                     @include mob{
-                                        width: 100%;
+                                        margin: 0 auto;
                                         padding: #{'max(0.5rem,20px)'};
+                                        height: #{'max(1.5rem,60px)'};
                                     }
                                     h2{
+                                        margin-top: #{'min(2.75rem,110px)'};
                                         font-size: $fz22;
                                         line-height: $hi40;
                                         @include tab{
                                             font-size: $fz16;
+                                            margin-top: $hi40;
                                         }
                                         @include mob{
                                             font-size: #{'max(1.2em,12px)'};
                                             line-height: #{'max(0.5rem,20px)'};
+                                            margin-top: 0;
                                         }
                                     }
                                     p{
@@ -618,6 +614,14 @@ html{
                     }
                 }
             }
+        }
+    }
+    @keyframes show{
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
         }
     }
 

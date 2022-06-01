@@ -5,7 +5,10 @@ $(function(){
     var scrBtn = $('.scrBtn');
     var clo = $('.navBoxWrap>.close>.btn');
     var i = 0;
+    var ml = 0;
+    var j = 0;
     var bnrBtn = $('.bnr02>.bnrTop>.btns>div');
+    var bnrVw = $('.bnr02>.bnrBtm>.bnrView');
     var bnrGr = $('.bnr02>.bnrBtm>.bnrView>.bnrGroup');
     var txt = $('.bnr02>.bnrBtm>.bnrView>.bnrGroup>.bnrGr>.texts');
 
@@ -13,14 +16,44 @@ $(function(){
         // pc버전
         hi = 120;
         hidw = 40;
+        ml = -83.33;
     }else if(wd >= 420 && wd <= 1024 ){
         // tab버전
         hi = 120;
         hidw = 40;
+        ml = -100;
     }else{
         // 모바일버전
         hi = 60;
         hidw = 20;
+        ml = -100;
+        // 배너02 슬라이드_모바일
+        bnrVw.swipeleft(function(){
+            j++;
+            bnrBtn.eq(0).css('opacity',1);
+            if(j>=2){
+                j=2;
+                bnrBtn.eq(1).css('opacity',0.3);
+            }
+            bnrGr.css({
+                marginLeft : j*ml+'%'
+            });
+            txt.removeClass('on');
+            txt.eq(j).addClass('on');
+        });
+        bnrVw.swiperight(function(){
+            j--;
+            bnrBtn.eq(1).css('opacity',1);
+            if(j<=0){
+                j=0;
+                bnrBtn.eq(0).css('opacity',0.3);
+            }
+            bnrGr.css({
+                marginLeft : j*ml+'%'
+            });
+            txt.removeClass('on');
+            txt.eq(i).addClass('on');
+        });
     }
 
     // 스크롤 버튼
@@ -50,18 +83,28 @@ $(function(){
     // 배너02 슬라이드
     bnrBtn.eq(1).click(function(){
         i++;
-        bnrGr.animate({
-            marginLeft : i*-83.33+'%'
+        bnrBtn.eq(0).css('opacity',1);
+        if(i>=2){
+            i=2;
+            bnrBtn.eq(1).css('opacity',0.3);
+        }
+        bnrGr.css({
+            marginLeft : i*ml+'%'
         });
-        txt.removeclass('on');
+        txt.removeClass('on');
+        txt.eq(i).addClass('on');
     });
     bnrBtn.eq(0).click(function(){
         i--;
+        bnrBtn.eq(1).css('opacity',1);
+        if(i<=0){
+            i=0;
+            bnrBtn.eq(0).css('opacity',0.3);
+        }
+        bnrGr.css({
+            marginLeft : i*ml+'%'
+        });
+        txt.removeClass('on');
+        txt.eq(i).addClass('on');
     });
-
-
-
-    
-    
-
 });

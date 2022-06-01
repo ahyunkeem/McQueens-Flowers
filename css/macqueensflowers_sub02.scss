@@ -107,7 +107,7 @@ html{
                     font-size: $fz16;
                     color: #fff;
                     cursor: pointer;
-                    &:nth-child(3)~h4{
+                    &:nth-child(2)~h4{
                         cursor: not-allowed;
                     }
                 }
@@ -315,6 +315,7 @@ html{
                 position: absolute;
                 bottom: -10%; right: 0;
                 transform: rotate(6deg);
+                cursor: pointer;
                 @include tab{
                     height: #{'min(7rem,280px)'};
                     width: calc(100% / 8 * 2.2);
@@ -322,7 +323,24 @@ html{
                 @include mob{
                     display: none;
                 }
+                &:hover{
+                    transform-origin: center;
+                    animation-name: shake;
+                    animation-duration: 0.5s;
+                    animation-iteration-count: infinite;
+                }
             }
+        }
+    }
+    @keyframes shake{
+        0%{
+            transform: rotate(6deg);
+        }
+        50%{
+            transform: rotate(10deg);
+        }
+        100%{
+            transform: rotate(6deg);
         }
     }
 
@@ -340,6 +358,7 @@ html{
                 }
                 .accordion{
                     li{
+                        transition: all 0.5s;
                         &:nth-child(odd){
                             display: flex;
                             justify-content: space-between;
