@@ -1,6 +1,6 @@
 $(function(){
-    $('.hdrPc').load('./inc/header_pc.html');
-    $('.hdrTab').load('./inc/header_Tab.html', function(){
+    $('.hdrPc').load('../inc/header_pc.html');
+    $('.hdrTab').load('../inc/header_tab.html', function(){
         var i = $('header>nav>i');
         i.click(function(){
             $('.navBoxWrap').css({
@@ -8,5 +8,5 @@ $(function(){
             });
         });
     });
-    $('.ftr').load('./inc/footer.html');
+    $('.ftr').load('../inc/footer.html');
 });
