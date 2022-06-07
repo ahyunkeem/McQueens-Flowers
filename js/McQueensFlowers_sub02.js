@@ -86,11 +86,11 @@ $(function(){
         });
     }
     con.find('.play').click(play);
-    con.find('.pause').click(stop);
+    con.find('.pause').click(pause);
     function play(){
         auto = setInterval(right,1200);
     }
-    function stop(){
+    function pause(){
         clearInterval(auto);
     }
 });
