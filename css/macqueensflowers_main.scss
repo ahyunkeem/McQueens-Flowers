@@ -145,7 +145,6 @@ html{
                 height: #{'max(2rem,40px)'};
             }
             .logo{
-                cursor: pointer;
                 @include tab{
                     height: $hi80;
                     width: calc(100% / 8 * 3);
