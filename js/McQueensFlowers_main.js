@@ -21,10 +21,12 @@ $(function(){
         // pc버전
         hi = 120;
         hidw = 40;
+        paging.click(page);
     }else if(wd >= 420 && wd <= 1024 ){
         // tab버전
         hi = 120;
         hidw = 40;
+        paging.click(page);
     }else{
         // 모바일버전
         hi = 60;
@@ -145,7 +147,7 @@ $(function(){
         paging.removeClass('show');
         paging.eq(i).addClass('show');
     });
-    paging.click(function(){
+    function page(){
         var ind = $(this).index();
         i = ind; j = ind;
         bnrBtn.css('opacity','1');
@@ -161,7 +163,7 @@ $(function(){
         });
         paging.removeClass('show');
         $(this).addClass('show');
-    });
+    }
 
     // 컨텐츠02 슬라이드
     cnt02tab.click(function(){

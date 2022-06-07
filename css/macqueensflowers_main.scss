@@ -388,6 +388,7 @@ html{
                         article{
                             .image{
                                 position: relative;
+                                text-indent: -9999px;
                                 .btn{
                                     font-weight: 700;
                                     font-size: $fz14;
@@ -469,6 +470,7 @@ html{
                             .image{
                                 width: calc(100% / 6 * 2.5);
                                 height: #{'min(5rem,200px)'};
+                                text-indent: -9999px;
                                 @include img();
                                 @for $i from 1 through 3{
                                     &.i#{$i}{
@@ -597,6 +599,7 @@ html{
                                         height: #{'min(6rem,240px)'};
                                         margin-top: $hi80;
                                         transition: all 0.3s;
+                                        text-indent: -9999px;
                                         @include img();
                                         @for $i from 1 through 16{
                                             &.i#{$i}{
@@ -775,6 +778,7 @@ html{
                 }
                 .images{
                     width: calc(50% - 20px);
+                    text-indent: -9999px;
                     @include tab{
                         width: calc(100% / 8 * 5);
                         margin: 0 auto;
@@ -795,6 +799,7 @@ html{
                             .image{
                                 width: calc(100% / 3);
                                 height: #{'min(13rem,520px)'};
+                                text-indent: -9999px;
                                 @include img();
                                 @for $i from 1 through 3{
                                     &.i#{$i}{
@@ -877,6 +882,7 @@ html{
                         position: absolute;
                         width: 100%;
                         height: #{'min(7rem,280px)'};
+                        text-indent: -9999px;
                         @include img();
                         @for $i from 1 through 4{
                             &.i#{$i}{

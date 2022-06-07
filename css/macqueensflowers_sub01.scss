@@ -350,6 +350,7 @@ html{
                                 }
                             }
                             .image{
+                                text-indent: -9999px;
                                 position: absolute;
                                 top: 0; left: 0;
                                 height: #{'min(7.75rem,310px)'};
@@ -405,6 +406,7 @@ html{
                             height: #{'min(16rem,640px)'};
                             width: 100%;
                             position: absolute;
+                            text-indent: -9999px;
                             @include img();
                             background-image: url('../images/sub01/sub01_bnr1_i3.jpg');
                             @include tab{
@@ -594,6 +596,7 @@ html{
                                 .image{
                                     width: calc(100% / 12 * 7);
                                     height: #{'min(10rem,400px)'};
+                                    text-indent: -9999px;
                                     @include img();
                                     @for $i from 1 through 3{
                                         &.i#{$i}{
@@ -699,6 +702,7 @@ html{
                     }
                     .image{
                         height: #{'min(7rem,280px)'};
+                        text-indent: -9999px;
                         @include img();
                         @for $i from 1 through 8{
                             &.i#{$i}{
