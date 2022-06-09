@@ -106,7 +106,7 @@ html{
                     font-size: $fz16;
                     color: #fff;
                     cursor: pointer;
-                    &:nth-child(2)~h4{
+                    &:nth-child(3)~h4{
                         cursor: not-allowed;
                     }
                 }
@@ -123,7 +123,6 @@ html{
         width: 100%;
         margin-left: 0;
     }
-
 
     // tab 헤더
     .hdrWrap{
