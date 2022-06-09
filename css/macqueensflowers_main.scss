@@ -505,7 +505,7 @@ html{
                                     line-height: $hi40;
                                     font-family: 'prata';
                                     @include mob{
-                                        font-size: $fz14;
+                                        font-size: #{'max(1.2em,12px)'};
                                         line-height: #{'max(0.5rem,20px)'};
                                         height: #{'max(0.5rem,20px)'};
                                         margin-top: #{'max(0.5rem,20px)'};
