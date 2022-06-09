@@ -261,14 +261,23 @@ html{
     // 메인
     .mainWrap{
         padding-top: $hi80;
+        @include mob{
+            padding-top: $hi20;
+        }
         main{
             @include grid('pc');
             font-family: 'basker';
             text-align: center;
+            @include tab{
+                width: 100%;
+            }
             .texts{
                 h2{
                     font-size: $fz22;
                     line-height: $hi40;
+                    @include tab{
+                        font-size: $fz20;
+                    }
                 }
                 p{
                     font-size: 14px;
@@ -278,6 +287,9 @@ html{
                     overflow: hidden;
                     margin: 0 auto;
                     margin-top: $hi80;
+                    @include tab{
+                        display: none;
+                    }
                 } 
             }
             .images{
@@ -294,6 +306,17 @@ html{
                             background-image: url('../images/sub03/sub03_main_i#{$i}.jpg');
                         }
                     }
+                    @include tab{
+                        height: #{'min(10rem,400px)'};
+                        width: calc(100% / 3 - 20px);
+                    }
+                    @include mob{
+                        width: calc(100% / 2 - 10px);
+                        height: #{'max(6rem,240px)'};
+                        &:nth-child(3){
+                            display: none;
+                        }
+                    }
                 }
             }
         }
@@ -302,8 +325,14 @@ html{
     // 배너
     .bnrWrap{
         margin-top: $hi120;
+        @include tab{
+            margin-top: $hi80;
+        }
         .banner{
             @include grid('pc');
+            @include tab{
+                @include grid('');
+            }
             &.bnr01{
                 .bnrGr{
                     display: flex;
@@ -319,15 +348,21 @@ html{
                                 background-image: url('../images/sub03/sub03_bnr1_i#{$i}.jpg');
                             }
                         }
+                        @include tab{
+                            height: #{'min(9rem,360px)'};
+                        }
                     }
                     .texts{
                         width: 50%;
                         font-family: 'basker';
                         text-align: center;
+                        padding-top: $hi120 0 0;
+                        @include tab{
+                            padding-top: #{'min(2.5rem,100px)'};
+                        }
                         h3{
                             font-size: $fz22;
                             line-height: $hi40;
-                            padding-top: $hi120;
                         }
                         p{
                             font-size: $fz14;
@@ -353,12 +388,19 @@ html{
                 text-align: center;
                 padding: $hi60 0;
                 font-family: 'basker';
+                @include tab{
+                    height: #{'min(9rem,360px)'};
+                    padding: $hi40 0;
+                }
                 h2{
                     font-size: $fz22;
                     line-height: $hi40;
                     border-bottom: $btm;
                     width: calc(100% / 12 * 6);
                     margin: 0 auto;
+                    @include tab{
+                        width: calc(100% / 8 * 6);
+                    }
                 }
                 form{
                     margin-top: $hi20;
@@ -373,6 +415,9 @@ html{
                         border: 1px solid #c3c7c7;
                         color: #fff;
                         text-align: center;
+                        @include tab{
+                            width: calc(100% / 8 * 5);
+                        }
                     }
                     h4{
                         margin-top: $hi40;
