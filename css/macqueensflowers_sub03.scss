@@ -366,13 +366,13 @@ html{
                         width: 50%;
                         font-family: 'basker';
                         text-align: center;
-                        padding-top: $hi120 0 0;
+                        padding-top: $hi120;
                         @include tab{
                             padding-top: #{'min(2.5rem,100px)'};
                         }
                         @include mob{
                             width: 100%;
-                            padding: 0;
+                            padding-top: 0;
                         }
                         h3{
                             font-size: $fz22;
