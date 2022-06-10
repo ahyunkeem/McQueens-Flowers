@@ -487,7 +487,7 @@ html{
                     }
                     @include mob{
                         line-height: #{'max(0.75rem,30px)'};
-                        font-size: #{'max(2em,20px)'};
+                        font-size: #{'max(2.5em,25px)'};
                         justify-content: space-between;
                     }
                     .left{
@@ -549,7 +549,7 @@ html{
                     }
                     @include mob{
                         line-height: #{'max(0.75rem,30px)'};
-                        font-size: #{'max(1.2em,12px)'};
+                        font-size: #{'max(2em,20px)'};
                         margin-right: calc(100% / 4);
                     }
                     .play{
@@ -737,7 +737,9 @@ html{
                         @include mob{
                             padding-bottom: $hi40;
                             line-height: #{'max(0.5rem,20px)'};
+                            height: #{'max(0.5rem,20px)'};
                             font-size: #{'max(1.1em,11px)'};
+                            overflow: hidden;
                         }
                     }
                 }
@@ -780,8 +782,6 @@ html{
         @include mob{
             width: calc(100% / 4);
             right: 3%;
-            line-height: 20px;
-            height: 20px;
         }
         cursor: pointer;
         span{
@@ -800,7 +800,7 @@ html{
         .btm{
             font-size: $fz16;
             @include mob{
-                font-size: #{'min(1.1em,11px)'};
+                font-size: #{'max(1.1em,11px)'};
             }
         }
     }

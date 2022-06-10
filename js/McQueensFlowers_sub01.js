@@ -1,7 +1,5 @@
 $(function(){
     var wd = $(window).width();
-    var hi = 0;
-    var hidw = 0;
     var scrBtn = $('.scrBtn');
     var clo = $('.navBoxWrap>.close>.btn');
     var i = 0;
@@ -14,18 +12,13 @@ $(function(){
 
     if(wd > 1024){
         // pc버전
-        hi = 120;
-        hidw = 40;
         ml = -83.33;
     }else if(wd >= 420 && wd <= 1024 ){
         // tab버전
-        hi = 120;
-        hidw = 40;
         ml = -100;
     }else{
         // 모바일버전
-        hi = 60;
-        hidw = 20;
+
         ml = -100;
         // 배너02 슬라이드_모바일
         bnrVw.swipeleft(function(){
@@ -59,10 +52,10 @@ $(function(){
     // 스크롤 버튼
     var btm = $('html').offset().top+$('html').outerHeight();
     scrBtn.mouseenter(function(){
-        scrBtn.css('height',hi+'px');
+        scrBtn.css('height',120+'px');
     });
     scrBtn.mouseleave(function(){
-        scrBtn.css('height',hidw+'px');
+        scrBtn.css('height',40+'px');
     });
     scrBtn.find('.top').click(function(){
         $('html,body').stop().animate({

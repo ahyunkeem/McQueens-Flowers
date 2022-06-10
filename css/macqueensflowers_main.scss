@@ -632,13 +632,17 @@ html{
                                         transition: opacity 0.5s;
                                         @include mob{
                                             top: 5%;
-                                            line-height: $hi20;;
+                                            height: #{'max(0.5rem,20px)'};
                                         }
                                         h5{
                                             text-align: center;
                                             line-height: $hi60;
                                             font-size: $fz12;
                                             font-family: 'basker';
+                                            @include mob{
+                                                font-size: #{'max(1.1em,11px)'};
+                                                line-height: #{'max(0.5rem,20px)'};
+                                            }
                                         }
                                     }
                                 }
@@ -673,7 +677,7 @@ html{
                             }
                             @include mob{
                                 line-height: #{'max(0.5rem,20px)'};
-                                font-size: #{'max(1.4em,14px)'};
+                                font-size: #{'max(1.1em,11px)'};
                             }
                         }
                     }
@@ -1023,7 +1027,9 @@ html{
                         @include mob{
                             padding-bottom: $hi40;
                             line-height: #{'max(0.5rem,20px)'};
+                            height: #{'max(0.5rem,20px)'};
                             font-size: #{'max(1.1em,11px)'};
+                            overflow: hidden;
                         }
                     }
                 }
@@ -1066,8 +1072,6 @@ html{
         @include mob{
             width: calc(100% / 4);
             right: 3%;
-            line-height: 20px;
-            height: 20px;
         }
         cursor: pointer;
         span{
@@ -1086,7 +1090,7 @@ html{
         .btm{
             font-size: $fz16;
             @include mob{
-                font-size: #{'min(1.1em,11px)'};
+                font-size: #{'max(1.1em,11px)'};
             }
         }
     }
