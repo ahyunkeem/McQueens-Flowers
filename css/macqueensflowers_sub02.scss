@@ -648,9 +648,6 @@ html{
         }
     }
 
-
-
-
     // 푸터
     .ftrWrap{
         margin-top: $hi120;
@@ -707,6 +704,10 @@ html{
                         @include tab{
                             text-align: center;
                         }
+                        @include mob{
+                            line-height: #{'max(0.5rem,20px)'};
+                            font-size: #{'max(1.3em,13px)'};
+                        }
                     }
                     .sns{
                         font-size: #{'min(2.8em,28px)'};
@@ -735,7 +736,8 @@ html{
                         }
                         @include mob{
                             padding-bottom: $hi40;
-                            line-height: $hi40;
+                            line-height: #{'max(0.5rem,20px)'};
+                            font-size: #{'max(1.1em,11px)'};
                         }
                     }
                 }
@@ -777,21 +779,29 @@ html{
         }
         @include mob{
             width: calc(100% / 4);
-            height: 20px;
-            line-height: 20px;
             right: 3%;
+            line-height: 20px;
+            height: 20px;
         }
         cursor: pointer;
         span{
             font-weight: 700;
             font-size: $fz18;
+            @include mob{
+                font-size: #{'max(1.1em,11px)'};
+            }
         }
         .top{
             font-size: $fz16;
+            @include mob{
+                font-size: #{'max(1.1em,11px)'};
+            }
         }
         .btm{
             font-size: $fz16;
+            @include mob{
+                font-size: #{'min(1.1em,11px)'};
+            }
         }
     }
-
 }
