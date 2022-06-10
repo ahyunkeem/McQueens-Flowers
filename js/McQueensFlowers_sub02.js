@@ -65,6 +65,15 @@ $(function(){
     });
 
     // 배너02 슬라이드
+    con.find('.play').click(play);
+    con.find('.pause').click(pause);
+    function play(){
+        auto = setInterval(right,1200);
+    }
+    function pause(){
+        clearInterval(auto);
+    }
+    
     imgGr.find('.image:last').prependTo(imgGr);
     imgGr.css('margin-left',-ml+'%');
     bnrBtn.find('.right').click(right);
@@ -84,13 +93,5 @@ $(function(){
             imgGr.find('.image:last').prependTo(imgGr);
             imgGr.css('margin-left',-ml+'%');
         });
-    }
-    con.find('.play').click(play);
-    con.find('.pause').click(pause);
-    function play(){
-        auto = setInterval(right,1200);
-    }
-    function pause(){
-        clearInterval(auto);
     }
 });

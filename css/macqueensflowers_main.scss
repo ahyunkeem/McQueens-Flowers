@@ -566,6 +566,8 @@ html{
                     .artView{
                         width: 100%;
                         overflow: hidden;
+                        touch-action: pan-y;
+                        -ms-touch-action: pan-y;
                         .artGroup{
                             width: 400%;
                             display: flex;
@@ -666,7 +668,7 @@ html{
                             font-family: 'basker';
                             font-size: $fz18;
                             cursor: pointer;
-                            &:nth-child(1){
+                            &.on{
                                 border-bottom: 1px solid #000;
                             }
                         }

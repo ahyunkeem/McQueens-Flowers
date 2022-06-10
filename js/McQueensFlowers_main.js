@@ -54,33 +54,8 @@ $(function(){
             paging.removeClass('show');
             paging.eq(j).addClass('show');
         });
-        // 컨텐츠02 슬라이드_모바일
-        cnt02Vw.swipeleft(function(){
-            var ind = $(this).index();
-            q++;
-            ind = q;
-            if(q >= 3){
-                q = 3;
-            }
-            cnt02Gr.css({
-                marginLeft : q*-100+'%'
-            });
-            cnt02tab.css('border-bottom','none');
-            cnt02tab.eq(ind).css('border-bottom','1px solid #000');
-        });
-        cnt02Vw.swiperight(function(){
-            var ind = $(this).index();
-            q--;
-            ind = q;
-            if(q <= 0){
-                q = 0;
-            }
-            cnt02Gr.css({
-                marginLeft : q*-100+'%'
-            })
-            cnt02tab.css('border-bottom','none');
-            cnt02tab.eq(ind).css('border-bottom','1px solid #000');
-        });
+        cnt02Vw.swipeleft(left);
+        cnt02Vw.swiperight(right);
     }
 
     // 스크롤 버튼
@@ -149,7 +124,7 @@ $(function(){
     });
     function page(){
         var ind = $(this).index();
-        i = ind; j = ind;
+        i = ind;
         bnrBtn.css('opacity','1');
         if(ind >= 2){
             bnrBtn.eq(1).css('opacity','0.4');
@@ -165,13 +140,38 @@ $(function(){
         $(this).addClass('show');
     }
 
+    
     // 컨텐츠02 슬라이드
-    cnt02tab.click(function(){
+    cnt02tab.click(liSlide);
+    function liSlide(){
         var ind = $(this).index();
         cnt02Gr.css({
             marginLeft : ind*-100+'%'
         });
-        cnt02tab.css('border-bottom','none');
-        $(this).css('border-bottom','1px solid #000');
-    });
+        cnt02tab.removeClass('on');
+        $(this).addClass('on');
+        q = ind;
+    };
+    function left(){
+        q++;
+        if(q >= 3){
+            q = 3;
+        }
+        cnt02Gr.css({
+            marginLeft : q*-100+'%'
+        });
+        cnt02tab.removeClass('on');
+        cnt02tab.eq(q).addClass('on');
+    };
+    function right(){
+        q--;
+        if(q <= 0){
+            q = 0;
+        }
+        cnt02Gr.css({
+            marginLeft : q*-100+'%'
+        })
+        cnt02tab.removeClass('on');
+        cnt02tab.eq(q).addClass('on');
+    };
 });
