@@ -1066,6 +1066,8 @@ html{
         @include mob{
             width: calc(100% / 4);
             right: 3%;
+            line-height: 20px;
+            height: 20px;
         }
         cursor: pointer;
         span{
@@ -1073,8 +1075,6 @@ html{
             font-size: $fz18;
             @include mob{
                 font-size: #{'max(1.1em,11px)'};
-                height: 20px;
-                line-height: 20px;
             }
         }
         .top{
