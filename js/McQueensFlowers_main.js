@@ -53,10 +53,10 @@ $(function(){
     // 스크롤 버튼
     var btm = $('html').offset().top+$('html').outerHeight();
     scrBtn.mouseenter(function(){
-        scrBtn.css('height',40+'px');
+        scrBtn.css('height',120+'px');
     });
     scrBtn.mouseleave(function(){
-        scrBtn.css('height',120+'px');
+        scrBtn.css('height',40+'px');
     });
     scrBtn.find('.top').click(function(){
         $('html,body').stop().animate({

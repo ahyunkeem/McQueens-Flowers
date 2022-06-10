@@ -657,7 +657,7 @@ html{
         }
         footer{
             @include grid('pc');
-            padding-top: $hi40;
+            padding: $hi40 0;
             @include tab{
                 @include grid('');
             }
@@ -735,7 +735,6 @@ html{
                             text-align: center;
                         }
                         @include mob{
-                            padding-bottom: $hi40;
                             line-height: #{'max(0.5rem,20px)'};
                             height: #{'max(0.5rem,20px)'};
                             font-size: #{'max(1.1em,11px)'};
