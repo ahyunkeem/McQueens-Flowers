@@ -420,6 +420,7 @@ html{
                 @include mob{
                     width: 100%;
                     height: #{'max(4rem,160px)'};
+                    background-attachment: scroll;
                 }
                 h2{
                     font-size: $fz22;
