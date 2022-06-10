@@ -1067,6 +1067,8 @@ html{
             font-size: $fz18;
             @include mob{
                 font-size: #{'max(1.1em,11px)'};
+                height: 20px;
+                line-height: 20px;
             }
         }
         .top{
