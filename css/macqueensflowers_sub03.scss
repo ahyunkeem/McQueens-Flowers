@@ -444,6 +444,7 @@ html{
                     }
                     h3{
                         line-height: $hi40;
+                        font-size: $fz14;
                         @include mob{
                             font-size: #{'max(1.1em,11px)'};
                             line-height: #{'max(0.5rem,20px)'};
@@ -474,6 +475,7 @@ html{
                     h4{
                         margin-top: $hi40;
                         line-height: $hi40;
+                        font-size: $fz14;
                         @include mob{
                             font-size: #{'max(1.1em,11px)'};
                             line-height: #{'max(0.5rem,20px)'};

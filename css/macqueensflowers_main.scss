@@ -671,6 +671,10 @@ html{
                             &.on{
                                 border-bottom: 1px solid #000;
                             }
+                            @include mob{
+                                line-height: #{'max(0.5rem,20px)'};
+                                font-size: #{'max(1.2em,12px)'};
+                            }
                         }
                     }
                 }
