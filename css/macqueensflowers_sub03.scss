@@ -488,6 +488,7 @@ html{
                         border: 1px solid #fff;
                         background-color: #fff;
                         cursor: pointer;
+                        color: #000;
                         @include mob{
                             font-size: #{'max(1.1em,11px)'};
                             line-height: #{'max(0.5rem,20px)'};
