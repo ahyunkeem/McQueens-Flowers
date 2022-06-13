@@ -502,6 +502,8 @@ html{
                     .bnrView{
                         width: calc((90vw - 1080px) / 2 + 100%);
                         overflow: hidden;
+                        touch-action: pan-y;
+                        -ms-touch-action: pan-y;
                         @include tab{
                             width: 100%;
                         }

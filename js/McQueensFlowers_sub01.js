@@ -23,6 +23,7 @@ $(function(){
         // 배너02 슬라이드_모바일
         bnrVw.swipeleft(function(){
             j++;
+            i = j;
             bnrBtn.eq(0).css('opacity',1);
             if(j>=2){
                 j=2;
@@ -36,6 +37,7 @@ $(function(){
         });
         bnrVw.swiperight(function(){
             j--;
+            i = j;
             bnrBtn.eq(1).css('opacity',1);
             if(j<=0){
                 j=0;

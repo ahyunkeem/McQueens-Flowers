@@ -771,9 +771,7 @@ html{
                             margin: 0 auto;
                         }
                         @include mob{
-                            width: 90%;
-                            font-size: #{'max(4em,40px)'};
-                            line-height: #{'max(1rem,40px)'};
+                            display: none;
                         }
                         .left{
                             cursor: pointer;
